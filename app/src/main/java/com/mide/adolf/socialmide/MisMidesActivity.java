@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +23,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class MisMidesActivity extends AppCompatActivity
@@ -36,6 +38,8 @@ public class MisMidesActivity extends AppCompatActivity
         setContentView(R.layout.activity_mis_mides);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        deleteCache();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -223,7 +227,15 @@ public class MisMidesActivity extends AppCompatActivity
 
         recyclerView.setAdapter(adapter);
 
+    }
 
-
+    private void deleteCache(){
+        File myDir = new File(getApplicationContext().getCacheDir()+"/");
+        if (myDir.isDirectory()) {
+            String[] children = myDir.list();
+            for (int i = 0; i < children.length; i++) {
+                new File(myDir, children[i]).delete();
+            }
+        }else Log.d("No es un directorio", "no loes , no lo es!!");
     }
 }

@@ -37,12 +37,6 @@ public class ShowNewMide extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_new_mide);
 
-        Button boton_guardar = findViewById(R.id.btn_save);
-
-
-        setClickOnSave(boton_guardar);
-
-
         mideObject = (MideObject) getIntent().getExtras().getSerializable("mideObject");
 
         cargarDatos(mideObject);

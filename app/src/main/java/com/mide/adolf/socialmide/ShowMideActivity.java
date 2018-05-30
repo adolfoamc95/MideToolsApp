@@ -3,6 +3,7 @@ package com.mide.adolf.socialmide;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -10,6 +11,8 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +24,7 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,98 +36,43 @@ public class ShowMideActivity extends AppCompatActivity {
 
     private static Bitmap bitMap;
     private MideObject mideObject;
+    BBDDLocal bdhelper;
+    SQLiteDatabase db ;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_mide);
 
-        ImageView imageView = findViewById(R.id.imageview_mide);
+        final ImageView imageView = findViewById(R.id.imageview_mide);
 
 
         mideObject = (MideObject) getIntent().getExtras().getSerializable("mideObject");
 
 
         cargar(imageView);
-        /*Button btn = (Button) findViewById(R.id.btn);
 
+        FloatingActionButton fabShare = findViewById(R.id.floatingActionButton_share);
+        FloatingActionButton fabDel = findViewById(R.id.floatingActionButton_delete);
 
-        LinearLayout tableContent = (LinearLayout) findViewById(R.id.content_table);
-        LayoutInflater inflater = LayoutInflater.from(this);
-        TableLayout table = (TableLayout) inflater.inflate(R.layout.image_mide_linear, null, false);
-        tableContent.addView(table);
-
-        btn.setOnClickListener(new View.OnClickListener() {
+        fabShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                LinearLayout view = (LinearLayout) findViewById(R.id.content_table);
-                view.setDrawingCacheEnabled(true);
-                view.buildDrawingCache();
-                Bitmap bm = view.getDrawingCache();
-                if(bm != null){
-                    Log.d(getClass().getName(), "Bitmap NO NULO");
-                    String ruta = guardarImagen(getApplicationContext(), "tabla", bm);
-                    Log.d(getClass().getName(), ruta);
-
-
-
-                }else Log.d(getClass().getName(), "Bitmap NULL");
+                compartir();
             }
-        });*/
-    }
-/*
-    private String guardarImagen (Context context, String nombre, Bitmap imagen){
-        ContextWrapper cw = new ContextWrapper(context);
-        File dirImages = cw.getDir("imagenes", Context.MODE_PRIVATE);
-        File myPath = new File(dirImages, nombre + ".png");
+        });
 
-        FileOutputStream fos = null;
-        try{
-            fos = new FileOutputStream(myPath);
-            imagen.compress(Bitmap.CompressFormat.JPEG, 10, fos);
-            fos.flush();
-        }catch (FileNotFoundException ex){
-            ex.printStackTrace();
-        }catch (IOException ex){
-            ex.printStackTrace();
-        }
-        return myPath.getAbsolutePath();
-    }
-    public final static String APP_PATH_SD_CARD = "SocialMide";
-    public final static String APP_THUMBNAIL_PATH_SD_CARD = "thumbnails";
-
-    public boolean saveImageToExternalStorage(Bitmap image) {
-
-
-        String fullPath = Environment.getExternalStorageDirectory().getAbsolutePath() + APP_PATH_SD_CARD + APP_THUMBNAIL_PATH_SD_CARD;
-
-        try {
-            File dir = new File(fullPath);
-            if (!dir.exists()) {
-                dir.mkdirs();
+        fabDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(delete()){
+                    Intent restartMain = new Intent(getApplicationContext(), MisMidesActivity.class);
+                    startActivity(restartMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                    finish();
+                }
             }
-
-            OutputStream fOut;
-            File file = new File(fullPath, "desiredFilename.png");
-            file.createNewFile();
-            fOut = new FileOutputStream(file);
-
-            // 100 means no compression, the lower you go, the stronger the compression
-            image.compress(Bitmap.CompressFormat.PNG, 100, fOut);
-            fOut.flush();
-            fOut.close();
-
-            MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), file.getAbsolutePath(), file.getName(), file.getName());
-
-            return true;
-
-        } catch (Exception e) {
-            Log.e("saveToExternalStorage()", e.getMessage());
-            return false;
-        }
+        });
     }
-*/
 
     private void cargar(ImageView imageView){
         ContextWrapper cw = new ContextWrapper(this.getApplicationContext());
@@ -136,12 +85,11 @@ public class ShowMideActivity extends AppCompatActivity {
         imageView.setImageDrawable(Drawable.createFromPath(mypath.toString()));
     }
 
-    private void compartir(ImageView imageView){
-
+    private void compartir(){
+        ImageView imageView = (ImageView) findViewById(R.id.imageview_mide);
         imageView.buildDrawingCache();
         Bitmap bitmap = imageView.getDrawingCache();
 
-/***** COMPARTIR IMAGEN *****/
         try {
             File file = new File(getApplicationContext().getCacheDir(), bitmap + ".png");
             FileOutputStream fOut = null;
@@ -152,11 +100,50 @@ public class ShowMideActivity extends AppCompatActivity {
             file.setReadable(true, false);
             final Intent intent = new Intent(android.content.Intent.ACTION_SEND);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+            intent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(getApplicationContext(),
+                    BuildConfig.APPLICATION_ID + ".provider",
+                    file));
             intent.setType("image/png");
-            getApplicationContext().startActivity(intent);
+            startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private boolean delete() {
+
+        // Delete from internal storage.
+        ContextWrapper cw = new ContextWrapper(this.getApplicationContext());
+
+        File directory = cw.getDir("imagenes", Context.MODE_PRIVATE);
+        File mypath=new File(directory,mideObject.getRuta()+".png");
+
+        if(mypath.delete()) {
+
+            // Delete from DB
+            bdhelper = new BBDDLocal(this, "mides", null, 1);
+            db = bdhelper.getWritableDatabase();
+
+            String whereClause = "id=?";
+            String[] whereArgs = new String[]{String.valueOf(mideObject.getMideId())};
+
+            if (db.delete("mides", whereClause, whereArgs) > 0) {
+                return true;
+            } else {
+                Toast toast1 =
+                        Toast.makeText(getApplicationContext(),
+                                "Ha habido un problema con el borrado de su MIDE", Toast.LENGTH_SHORT);
+
+                toast1.show();
+                return false;
+            }
+        }else {
+            Toast toast1 =
+                    Toast.makeText(getApplicationContext(),
+                            "Ha habido un problema con el acceso a la memoria Interna", Toast.LENGTH_SHORT);
+
+            toast1.show();
+            return false;
         }
     }
 }
