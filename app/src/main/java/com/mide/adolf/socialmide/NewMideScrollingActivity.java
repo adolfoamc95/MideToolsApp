@@ -74,7 +74,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
     }
 
-    private LinearLayout añadirGrupos(int nGrupo, MideParams mideParams){
+    private LinearLayout añadirGrupos(int nGrupo, final MideParams mideParams){
 
         int grupo = nGrupo;
         MideParams paramList = mideParams;
@@ -92,10 +92,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
             case 2:
                 LinearLayout linearLayout2 = (LinearLayout) inflater.inflate(R.layout.resource_medio, null, false);
-                //linearLayout2.setLayoutParams(new LinearLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
-                //linearLayout2.setOrientation(LinearLayout.VERTICAL);
-                //linearLayout2.setGravity(Gravity.CENTER);
-                //linearLayout2.setGravity(Gravity.CENTER);
+
 
                 TextView tituloM = (TextView) linearLayout2.findViewById(R.id.titulo_medio);
                 tituloM.setText(getResources().getString(R.string.titulo_medio));
@@ -225,6 +222,9 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                 final TextView txt_pend = linearLayout6.findViewById(R.id.txt_pend);
                 Spinner spNieve = linearLayout6.findViewById(R.id.tecnicas_nieve_spinner);
                 final Spinner spNievePend = linearLayout6.findViewById(R.id.tecnicas_nieve_spinner_pen);
+                Spinner sppasos = linearLayout6.findViewById(R.id.tecnicas_pasos_spinner);
+                Spinner sprapel = linearLayout6.findViewById(R.id.tecnicas_rapel_spinner);
+
                 spNievePend.setVisibility(View.INVISIBLE);
                 txt_pend.setVisibility(View.INVISIBLE);
 
@@ -245,6 +245,42 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                     @Override
                     public void onNothingSelected(AdapterView<?> parent) {
                         Log.d(getClass().getName(), "Nada seleccionado");
+                    }
+                });
+
+                sppasos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        mideObject.setnPasos(position);
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
+                spNievePend.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        mideObject.setAngPend(position);
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
+                sprapel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        mideObject.setMetrosRapel(position);
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
                     }
                 });
 
@@ -368,7 +404,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
             case 6:
 
-                int pPasos, pRapel, pNieve;
+                /*int pPasos, pRapel, pNieve;
 
                 Spinner spPasos = contenedor.findViewById(R.id.tecnicas_pasos_spinner);
                 Spinner spRapel = contenedor.findViewById(R.id.tecnicas_rapel_spinner);
@@ -382,7 +418,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
                 mideObject.setnPasos(pPasos);
                 mideObject.setMetrosRapel(pNieve);
-                mideObject.setAngPend(pRapel);
+                mideObject.setAngPend(pRapel);*/
                 return true;
 
 

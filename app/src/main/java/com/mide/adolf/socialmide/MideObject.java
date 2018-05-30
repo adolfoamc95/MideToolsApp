@@ -143,10 +143,7 @@ public class MideObject implements Serializable{
     }
 
     public void setMetrosRapel(int pos) {
-
-        int metros = 5* pos;
-
-        this.metrosRapel = metros;
+        this.metrosRapel = 5* pos;
     }
 
     public String getnPasos() {
@@ -167,6 +164,7 @@ public class MideObject implements Serializable{
                 break;
             case 3:
                 this.nPasos = "III+";
+                Log.d("npasos dentro de switch", this.nPasos);
                 break;
             case 4:
                 this.nPasos = "IV";
@@ -177,10 +175,7 @@ public class MideObject implements Serializable{
             case 6:
                 this.nPasos = "V";
                 break;
-
-
         }
-        this.nPasos = "";
     }
 
     public String getEpoca() {

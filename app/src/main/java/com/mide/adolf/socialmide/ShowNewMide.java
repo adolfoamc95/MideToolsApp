@@ -68,65 +68,6 @@ public class ShowNewMide extends AppCompatActivity {
     }
 
 
-    private void setClickOnSave (Button b) {
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LinearLayout view = (LinearLayout) findViewById(R.id.content_table);
-                view.setDrawingCacheEnabled(true);
-                view.buildDrawingCache();
-                Bitmap bm = view.getDrawingCache();
-                if(bm != null){
-                    Log.d(getClass().getName(), "Bitmap NO NULO");
-                    String nombreImagen = mideObject.getRuta();
-                    String ruta = guardarImagen(getApplicationContext(), nombreImagen, bm);
-                    Log.d(getClass().getName(), ruta);
-
-                    if (db != null) {
-                        MideObject mide1 = mideObject;
-
-                        ContentValues nuevoRegistroA = new ContentValues();
-
-                        nuevoRegistroA.put("id", mide1.getMideId());
-                        nuevoRegistroA.put("nombre", mide1.getNombre());
-                        nuevoRegistroA.put("epoca", mide1.getEpoca());
-                        nuevoRegistroA.put("horario", mide1.getHorario());
-                        nuevoRegistroA.put("ano", mide1.getAño());
-                        nuevoRegistroA.put("distancia", String.valueOf(mide1.getDistancia()));
-                        nuevoRegistroA.put("dispos", String.valueOf(mide1.getDesSubida()));
-                        nuevoRegistroA.put("disneg", String.valueOf(mide1.getDesBajada()));
-                        nuevoRegistroA.put("notaSev", String.valueOf(mide1.getNotaSev()));
-                        nuevoRegistroA.put("notaOr", String.valueOf(mide1.getNotaOr()));
-                        nuevoRegistroA.put("notaDif", String.valueOf(mide1.getNotaDiff()));
-                        nuevoRegistroA.put("notaEsf", String.valueOf(mide1.getNotaEsf()));
-                        nuevoRegistroA.put("nPasos", String.valueOf(mide1.getnPasos()));
-                        nuevoRegistroA.put("mRapel", String.valueOf(mide1.getMetrosRapel()));
-                        nuevoRegistroA.put("nievePend", String.valueOf(mide1.getAngPend()));
-                        nuevoRegistroA.put("ruta", mide1.getRuta());
-
-                        db.insert("mides", null, nuevoRegistroA);
-                        Log.d("BBDD", "mideobject inserted");
-                        db.close();
-
-                        Toast toast1 =
-                                Toast.makeText(getApplicationContext(),
-                                        "Su MIDE se ha guardado en su dispostivo", Toast.LENGTH_SHORT);
-
-
-                        toast1.show();
-                    }
-                }else {
-                    Log.d(getClass().getName(), "Bitmap NULL");
-                    Toast toast1 =
-                            Toast.makeText(getApplicationContext(),
-                                    "Ha habido un problema con el generado de su MIDE", Toast.LENGTH_SHORT);
-
-                    toast1.show();
-                }
-            }
-        });
-    }
-
     private void setClickOnSaveFab (FloatingActionButton b) {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,7 +99,7 @@ public class ShowNewMide extends AppCompatActivity {
                         nuevoRegistroA.put("notaOr", String.valueOf(mide1.getNotaOr()));
                         nuevoRegistroA.put("notaDif", String.valueOf(mide1.getNotaDiff()));
                         nuevoRegistroA.put("notaEsf", String.valueOf(mide1.getNotaEsf()));
-                        nuevoRegistroA.put("nPasos", String.valueOf(mide1.getnPasos()));
+                        nuevoRegistroA.put("nPasos", mide1.getnPasos());
                         nuevoRegistroA.put("mRapel", String.valueOf(mide1.getMetrosRapel()));
                         nuevoRegistroA.put("nievePend", String.valueOf(mide1.getAngPend()));
                         nuevoRegistroA.put("ruta", mide1.getRuta());
@@ -224,8 +165,8 @@ public class ShowNewMide extends AppCompatActivity {
         txtNombre.setText(String.valueOf(object.getNombre()));
         txtdesSub.setText(String.valueOf(object.getDesSubida())+" m");
         txtdesBaj.setText(String.valueOf(object.getDesBajada())+" m");
-        String distancia = String.format("%.2f", object.getDistancia())+" Km";
-        txtDist.setText(distancia);
+        String distancia = String.format("%.2f", object.getDistancia());
+        txtDist.setText(distancia+" Km");
         txtSev.setText(String.valueOf(object.getNotaSev()));
         txtOr.setText(String.valueOf(object.getNotaOr()));
         txtDif.setText(String.valueOf(object.getNotaDiff()));
@@ -237,7 +178,7 @@ public class ShowNewMide extends AppCompatActivity {
         Log.d("Rapel", String.valueOf(object.getMetrosRapel()));
         Log.d("Nieve", String.valueOf(object.getAngPend()));
 
-        if(object.getnPasos()==""){
+        if(object.getnPasos().equals("")){
             Log.d("Pasos", object.getnPasos()+"pasos vacio");
 
             TableRow tableRow = table.findViewById(R.id.row_pasos);
