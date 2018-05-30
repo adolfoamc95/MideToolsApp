@@ -44,7 +44,6 @@
             android:name=".NewMideScrollingActivity"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SocialListActivity" />
         <activity android:name=".ShowNewMide" />
         <activity
             android:name=".HelpScrollingActivity"

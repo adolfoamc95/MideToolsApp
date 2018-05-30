@@ -156,20 +156,24 @@ public class MisMidesActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_main) {
+            Intent restartMain = new Intent(getApplicationContext(), MisMidesActivity.class);
+            startActivity(restartMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            //finish();
+        } else if (id == R.id.nav_new) {
+            Intent startNew = new Intent(getApplicationContext(), NewMideScrollingActivity.class);
+            startActivity(startNew);
+        } else if (id == R.id.nav_help) {
+            Intent help = new Intent(getApplicationContext(), HelpScrollingActivity.class);
+            startActivity(help);
+        } else if (id == R.id.nav_settings) {
+            /*Intent restartMain = new Intent(getApplicationContext(), MisMidesActivity.class);
+            startActivity(restartMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            finish();*/
+        } else if (id == R.id.nav_about) {
+            Intent about = new Intent(getApplicationContext(), AboutActivity.class);
+            startActivity(about);
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
