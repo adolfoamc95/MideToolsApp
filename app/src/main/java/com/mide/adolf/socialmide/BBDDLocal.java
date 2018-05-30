@@ -26,6 +26,10 @@ public class BBDDLocal extends SQLiteOpenHelper {
                 "  `nievePend` varchar(20) NOT NULL" +
                 ")" ;
 
+    String createOptionsSentence = "CREATE TABLE `options` (" +
+            "  `opcion` varchar(1000) NOT NULL" +
+            ")" ;
+
         public BBDDLocal(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
             super(context, name, factory, version);
         }
@@ -34,6 +38,7 @@ public class BBDDLocal extends SQLiteOpenHelper {
         public void onCreate(SQLiteDatabase sqLiteDatabase) {
             try{
                 sqLiteDatabase.execSQL(createMidesSentence);
+                sqLiteDatabase.execSQL(createOptionsSentence);
 
             }catch(Exception e){
                 Log.e("BDLocal", "No se han podido crear las bases de datos"+e.getMessage());
@@ -45,6 +50,8 @@ public class BBDDLocal extends SQLiteOpenHelper {
 
             sqLiteDatabase.execSQL("DROP TABLE IF EXISTS mides");
             sqLiteDatabase.execSQL(createMidesSentence);
+            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS options");
+            sqLiteDatabase.execSQL(createOptionsSentence);
 
         }
 }

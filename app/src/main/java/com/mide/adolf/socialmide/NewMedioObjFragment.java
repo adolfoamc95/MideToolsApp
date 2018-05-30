@@ -1,13 +1,18 @@
 package com.mide.adolf.socialmide;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,6 +23,9 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class NewMedioObjFragment extends Fragment {
+
+    BBDDLocal bdhelper;
+    SQLiteDatabase db ;
 
     private OnNewFragmentInteractionListener mListener;
 
@@ -44,11 +52,13 @@ public class NewMedioObjFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_new_medio_obj, container, false);
 
-        Button add = view.findViewById(R.id.bt_add);
+        Button add = view.findViewById(R.id.main_button);
+        final EditText ed = view.findViewById(R.id.main_editText);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                guardarMedioOption();
+                String opcion = ed.getText().toString();
+                guardarMedioOption(opcion);
             }
         });
         return view;
@@ -92,7 +102,22 @@ public class NewMedioObjFragment extends Fragment {
         void onFragmentInteraction(String s);
     }
 
-    private void guardarMedioOption() {
-        SqliteH
+    private void guardarMedioOption(String s) {
+
+        if(s!="") {
+            bdhelper = new BBDDLocal(this.getContext(), "options", null, 1);
+            db = bdhelper.getWritableDatabase();
+
+            if (db != null) {
+                Log.d("NewMedioOptFrag",s);
+                ContentValues nuevoRegistroA = new ContentValues();
+                nuevoRegistroA.put("opcion", s);
+                db.insert("options", null, nuevoRegistroA);
+                db.close();
+            }
+        }else{
+            Toast toast = Toast.makeText(this.getContext(), "Debes escribir algo", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 }

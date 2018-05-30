@@ -3,6 +3,8 @@ package com.mide.adolf.socialmide;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.LinkAddress;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -41,6 +43,10 @@ public class NewMideScrollingActivity extends AppCompatActivity {
     private int checkedIt = 0, checkedDes =0;
     private MideObject mideObject = new MideObject();
     private int nEsfItems = 0;
+    BBDDLocal bdhelper;
+    SQLiteDatabase db ;
+    ArrayList<String> opciones;
+
 
 
     @Override
@@ -97,7 +103,25 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                 TextView tituloM = (TextView) linearLayout2.findViewById(R.id.titulo_medio);
                 tituloM.setText(getResources().getString(R.string.titulo_medio));
 
-                for(String s: paramList.getListaMedio()) {
+                BBDDLocal bdhelper = new BBDDLocal(this, "options", null, 1);
+                SQLiteDatabase db = bdhelper.getWritableDatabase();
+
+                opciones = mideParams.getListaMedio();
+
+                Cursor c = db.rawQuery("SELECT * FROM options", null);
+
+                if(c.moveToFirst()) {
+                    do {
+
+                        String opcion = c.getString(0);
+                        opciones.add(opcion);
+
+                    } while (c.moveToNext());
+
+                    db.close();
+                }
+
+                for(String s: opciones) {
                    CheckBox checkBox = new CheckBox(getApplicationContext());
                    checkBox.setText(s);
                     checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
