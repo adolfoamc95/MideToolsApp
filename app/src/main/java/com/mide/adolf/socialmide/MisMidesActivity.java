@@ -139,6 +139,8 @@ public class MisMidesActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intenSet = new Intent(getApplicationContext(), SettingsActivity.class);
+            startActivity(intenSet);
             return true;
         }
         if (id == R.id.action_about){
@@ -167,9 +169,8 @@ public class MisMidesActivity extends AppCompatActivity
             Intent help = new Intent(getApplicationContext(), HelpScrollingActivity.class);
             startActivity(help);
         } else if (id == R.id.nav_settings) {
-            /*Intent restartMain = new Intent(getApplicationContext(), MisMidesActivity.class);
-            startActivity(restartMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
-            finish();*/
+            Intent intenSet = new Intent(getApplicationContext(), SettingsActivity.class);
+            startActivity(intenSet);
         } else if (id == R.id.nav_about) {
             Intent about = new Intent(getApplicationContext(), AboutActivity.class);
             startActivity(about);
