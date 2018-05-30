@@ -34,6 +34,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class NewMideScrollingActivity extends AppCompatActivity {
@@ -60,13 +61,13 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
         layout = (ViewGroup) findViewById(R.id.content);
 
-        MideParams mideParams = new MideParams();
-        final LinearLayout ll1 = añadirGrupos(1, mideParams);
-        final LinearLayout ll2 = añadirGrupos(2, mideParams);
-        final LinearLayout ll3 = añadirGrupos(3, mideParams);
-        final LinearLayout ll4 = añadirGrupos(4, mideParams);
-        final LinearLayout ll5 = añadirGrupos(5, mideParams);
-        final LinearLayout ll6 = añadirGrupos(6, mideParams);
+
+        final LinearLayout ll1 = añadirGrupos(1);
+        final LinearLayout ll2 = añadirGrupos(2);
+        final LinearLayout ll3 = añadirGrupos(3);
+        final LinearLayout ll4 = añadirGrupos(4);
+        final LinearLayout ll5 = añadirGrupos(5);
+        final LinearLayout ll6 = añadirGrupos(6);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -80,10 +81,9 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
     }
 
-    private LinearLayout añadirGrupos(int nGrupo, final MideParams mideParams){
+    private LinearLayout añadirGrupos(int nGrupo){
 
         int grupo = nGrupo;
-        MideParams paramList = mideParams;
 
         LayoutInflater inflater = LayoutInflater.from(this);
 
@@ -106,7 +106,9 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                 BBDDLocal bdhelper = new BBDDLocal(this, "options", null, 1);
                 SQLiteDatabase db = bdhelper.getWritableDatabase();
 
-                opciones = mideParams.getListaMedio();
+                String[] array = getResources().getStringArray(R.array.options);
+
+                opciones = new ArrayList<>(Arrays.asList(array));
 
                 Cursor c = db.rawQuery("SELECT * FROM options", null);
 
@@ -154,7 +156,9 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                 if(radioGroup == null) break;
                 txt_titulo.setText(getResources().getString(R.string.titulo_it));
 
-                for(String s: paramList.getListaItinerario()) {
+                String[] array1 = getResources().getStringArray(R.array.options_rb_1);
+
+                for(String s: array1) {
                     RadioButton radioButton = new RadioButton(getApplicationContext());
                     LinearLayout.LayoutParams params = new RadioGroup.LayoutParams(
                             RadioGroup.LayoutParams.WRAP_CONTENT,
@@ -189,7 +193,9 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
                 txt_titulo2.setText(getResources().getString(R.string.titulo_desp));
 
-                for(String s: paramList.getListaDesplazamiento()) {
+                String[] array2 = getResources().getStringArray(R.array.options_rb_2);
+
+                for(String s: array2) {
                     RadioButton radioButton = new RadioButton(getApplicationContext());
                     LinearLayout.LayoutParams params = new RadioGroup.LayoutParams(
                             RadioGroup.LayoutParams.WRAP_CONTENT,

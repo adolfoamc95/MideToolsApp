@@ -190,8 +190,42 @@
         <item>90º</item>
     </string-array>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- MIdeParams -->
 
+    <string-array name="options">
+        <item>Exposición en el itinerario a desprendimientos espontáneos de piedras</item>
+        <item>Exposición en el itinerario a desprendimientos espontáneos de nieve o hielo</item>
+        <item>Exposición en el itinerario a desprendimientos de piedras provocados por el propio grupo u otro</item>
+        <item>Eventualidad de que una caída de un excursionista sobre el propio itinerario le provoque una caída al vacío o un deslizamiento por la pendiente</item>
+        <item>Existencia de pasos en que sea necesario el uso de las manos</item>
+        <item>Paso de torrentes sin puente</item>
+        <item>Paso por glaciares o ciénagas</item>
+        <item>Paso probable por neveros o glaciares, independientemente de su inclinación</item>
+        <item>Alta probabilidad de que por la noche la temperatura descienda de 0ºC</item>
+        <item>Alta probabilidad de que por la noche la temperatura descienda de 5 ºC y la humedad relativa supere el 90%</item>
+        <item>Alta probabilidad de que por la noche la temperatura descienda de –10ºC</item>
+        <item>Paso por lugares alejados a más de 1 hora de marcha (horario MIDE) de un lugar habitado, un teléfono de socorro o una carretera abierta</item>
+        <item>Paso por lugares alejados a más de 3 hora de marcha (horario MIDE) de un lugar habitado, un teléfono de socorro o una carretera abierta</item>
+        <item>La diferencia entre la duración del día (en la época considerada) y el horario del recorrido es menor de 3 horas</item>
+        <item>En algún tramo del recorrido, la existencia de fenómenos atmosféricos que no se juzguen infrecuentes, aumentaría considerablemente la dificultad del itinerario (niebla, viento, calor extremo, etc...)</item>
+        <item>El itinerario, en algún tramo, transcurre fuera de traza de camino y por terreno enmarañado o irregular que dificultaría la localización de personas</item>
+        <item>Exposición contrastada a picaduras de serpientes o insectos peligrosos</item>
+        <item>En algún tramo del recorrido existe algún otro factor de riesgo, propio de cada zona, que no ha sido tenido en cuenta en el listado anterior</item>
+    </string-array>
+
+    <string-array name="options_rb_2">
+        <item>Carreteras y pistas para vehículos independientemente de su inclinación. Escaleras de piso regular. Playas de arena o grava.</item>
+        <item>Caminos con diversos firmes pero que mantienen la regularidad del piso, no presentan gradas muy altas, y permiten elegir la longitud del paso. Terreno apto para caballerías. Campo a través por terrenos uniformes como landas, taiga y prados no muy inclinados.</item>
+        <item>Marcha por sendas con gradas o escalones irregulares de distinto tamaño, altura, rugosidad e inclinación. Marcha fuera de senda por terrenos irregulares. Cruces de caos de piedras. Marcha por pedreras inestables.</item>
+        <item>Tramos con pasos que requieren el uso de las manos hasta el I Sup.</item>
+        <item>Pasos de escalada de II hasta el III+ de la escala UIAA. Existencia de elementos artificiales para la progresión por tracción (clavijas, cadenas...). La existencia de estos pasos obliga a una mención explícita en el apartado Dificultades técnicas específicas aún en el caso de que el tramo (y por tanto la excursión) fueran valorados 4.</item>
+    </string-array>
+    <string-array name="options_rb_1">
+        <item>Caminos principales bien delimitados o señalizados con cruces claros con indicación explícita o implícita. Mantenerse sobre el camino no exige esfuerzo de identificación de la traza. Eventualmente seguimiento de una línea marcada por un accidente geográfico inconfundible (una playa, la orilla de un lago...</item>
+        <item>Existe traza clara de camino sobre el terreno o señalización para la continuidad. Se requiere atención para la continuidad y los cruces de otras trazas pero sin necesidad de una interpretación precisa de los accidentes geográficos. Esta puntuación se aplicaría a la mayoría de senderos señalizados que utilizan en un mismo recorrido distintos tipos de caminos con numerosos cruces: pistas, caminos de herradura, sendas, campo a través de señal a señal (bien emplazadas y mantenidas).</item>
+        <item>Aunque el itinerario se desarrolla por trazas de sendero, líneas marcadas por accidentes geográficos (ríos, fondos de los valles, cornisas, crestas...) o marcas de paso de otras personas, la elección del itinerario adecuado depende del reconocimiento de los accidentes geográficos y de los puntos cardinales.</item>
+        <item>No existe traza sobre el terreno ni seguridad de contar con puntos de referencia en el horizonte. El itinerario depende de la comprensión del terreno y del trazado de rumbos.</item>
+        <item>Los rumbos y/o líneas naturales del itinerario son interrumpidos por obstáculos que hay que bordear.</item>
+    </string-array>
 
 </resources>
