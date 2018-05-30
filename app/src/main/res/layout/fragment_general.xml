@@ -13,7 +13,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="161dp"
-        android:text="Cambiar idioma"
+        android:text="@string/bt_lang"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="169dp"
         android:layout_alignParentLeft="true" />
@@ -25,7 +25,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="161dp"
-        android:text="Añadir nueva opcion Severidad del Medio"
+        android:text="@string/gen_bt_add"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="273dp"
         android:layout_alignParentLeft="true" />

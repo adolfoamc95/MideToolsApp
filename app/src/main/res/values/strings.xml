@@ -79,11 +79,13 @@
         "MIDETOOLS version: 1.0"
     </string>
 
+    <string name="MIDE">MIDE</string>
     <!-- Resource general -->
     <string name="titulo_general">GENERAL</string>
     <string name="general_name">Nombre de la ruta</string>
     <string name="general_cond">Condiciones del recorrido</string>
     <string name="general_year">Año de los datos</string>
+    <string name="horario">Horario</string>
 
     <string-array name="list_cond">
         <item>Verano</item>
@@ -113,6 +115,19 @@
         <item>2001</item>
         <item>2000</item>
     </string-array>
+    
+    <string name="des_sub">Desnivel de subida</string>
+    <string name="des_baj">Desnivel de bajada</string>
+    <string name="distancia">Distancia horizontal</string>
+    <string name="tipo_rec">Tipo de recorrido</string>
+    <string name="severidad">Severidad del medio natural</string>
+    <string name="orientacion">Orientación del itinerario</string>
+    <string name="dificultad">Dificultad en el desplazamiento</string>
+    <string name="esfuerzo">Cantidad de esfuerzo necesario</string>
+    <string name="pasos_string">Pasos</string>
+    <string name="rapel_string">Rapel</string>
+    <string name="nieve_string">Nieve</string>
+    <string name="datos_extra">Datos calculados segun criterios MIDE</string>
 
     <!-- Resource Medio -->
     <string name="titulo_medio">SEVERIDAD DEL MEDIO</string>
@@ -127,6 +142,8 @@
     <!-- Rsource Esfuerzo -->
 
     <string name="titulo_esfuerzo">ESFUERZO</string>
+    <string name="metros">metros</string>
+    <string name="tipo_recorrido">Tipo de recorrido</string>
 
     <string-array name="list_tipoR">
         <item>Seleccionar</item>
@@ -227,5 +244,11 @@
         <item>No existe traza sobre el terreno ni seguridad de contar con puntos de referencia en el horizonte. El itinerario depende de la comprensión del terreno y del trazado de rumbos.</item>
         <item>Los rumbos y/o líneas naturales del itinerario son interrumpidos por obstáculos que hay que bordear.</item>
     </string-array>
+
+    <!-- Opciones -->
+    <string name="button_añadir">Añadir</string>
+    <string name="hint_añadir">Escribe aqui tu nueva opción</string>
+    <string name="gen_bt_add">Añadir nueva opcion Severidad del Medio</string>
+    <string name="bt_lang">Cambiar Idioma</string>
 
 </resources>

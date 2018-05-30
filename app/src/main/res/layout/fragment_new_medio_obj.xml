@@ -4,34 +4,25 @@
     android:layout_height="match_parent"
     tools:context=".NewMedioObjFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/main_textview"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/main_button"
-        android:layout_marginTop="41dp" />
-
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
         android:id="@+id/main_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="159dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:hint="Escribe aqui tu nueva opción" />
+        android:layout_marginTop="141dp"
+        android:ems="10"
+        android:hint="@string/hint_añadir"
+        android:inputType="textMultiLine" />
 
     <Button
+        android:id="@+id/main_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/main_button"
-        android:layout_below="@+id/main_editText"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
-        android:text="Añadir" />
+        android:layout_marginBottom="137dp"
+        android:text="@string/button_añadir" />
 
 
 

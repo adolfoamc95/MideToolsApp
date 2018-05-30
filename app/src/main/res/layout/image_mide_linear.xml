@@ -9,9 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border">
+        android:background="@drawable/border">
         <TextView
-            android:text="MIDE"
+            android:text="@string/MIDE"
             android:layout_span="3"/>
 
     </TableRow>
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border">
+        android:background="@drawable/border">
         <TextView
             android:id="@+id/txt_nombre"
             android:layout_span="3"/>
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border">
+        android:background="@drawable/border">
 
         <ImageView app:srcCompat="@drawable/ic_menu_manage" />
 
@@ -38,8 +38,8 @@
             android:id="@+id/txt_horario" />
 
         <TextView
-            android:layout_gravity="right"
-            android:text="Horario" />
+            android:layout_gravity="end"
+            android:text="@string/horario" />
 
 
     </TableRow>
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border">
+        android:background="@drawable/border">
 
         <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
 
@@ -56,8 +56,8 @@
             android:id="@+id/txt_des_sub"/>
 
         <TextView
-            android:layout_gravity="right"
-            android:text="Desnivel de subida" />
+            android:layout_gravity="end"
+            android:text="@string/des_sub" />
 
 
 
@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border">
+        android:background="@drawable/border">
 
         <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
 
@@ -75,8 +75,8 @@
             android:id="@+id/txt_des_baj"/>
 
         <TextView
-            android:layout_gravity="right"
-            android:text="Desnivel de bajada" />
+            android:layout_gravity="end"
+            android:text="@string/des_baj" />
 
 
 
@@ -86,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border">
+        android:background="@drawable/border">
 
         <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
 
@@ -94,8 +94,8 @@
             android:id="@+id/txt_dist"/>
 
         <TextView
-            android:layout_gravity="right"
-            android:text="Distancia horizontal" />
+            android:layout_gravity="end"
+            android:text="@string/distancia" />
 
 
     </TableRow>
@@ -104,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border">
+        android:background="@drawable/border">
 
         <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
 
@@ -112,8 +112,8 @@
             android:id="@+id/txt_tipo" />
 
         <TextView
-            android:layout_gravity="right"
-            android:text="Tipo de recorrido" />
+            android:layout_gravity="end"
+            android:text="@string/tipo_rec" />
 
 
 
@@ -123,7 +123,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border">
+        android:background="@drawable/border">
 
         <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
 
@@ -131,8 +131,8 @@
             android:id="@+id/txt_nota_sev" />
 
         <TextView
-            android:layout_gravity="right"
-            android:text="Severidad del medio natural" />
+            android:layout_gravity="end"
+            android:text="@string/severidad" />
 
     </TableRow>
 
@@ -140,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border">
+        android:background="@drawable/border">
 
         <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
 
@@ -148,8 +148,8 @@
             android:id="@+id/txt_nota_or"/>
 
         <TextView
-            android:layout_gravity="right"
-            android:text="Orientación del itinerario" />
+            android:layout_gravity="end"
+            android:text="@string/orientacion" />
 
     </TableRow>
 
@@ -157,7 +157,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border">
+        android:background="@drawable/border">
 
         <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
 
@@ -165,8 +165,8 @@
             android:id="@+id/txt_nota_despl"/>
 
         <TextView
-            android:layout_gravity="right"
-            android:text="Dificultad en el desplazamiento" />
+            android:layout_gravity="end"
+            android:text="@string/dificultad" />
 
     </TableRow>
 
@@ -174,7 +174,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border">
+        android:background="@drawable/border">
 
         <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
 
@@ -182,8 +182,8 @@
             android:id="@+id/txt_nota_esf"/>
 
         <TextView
-            android:layout_gravity="right"
-            android:text="Cantidad de esfuerzo necesario" />
+            android:layout_gravity="end"
+            android:text="@string/esfuerzo" />
 
     </TableRow>
 
@@ -192,7 +192,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border" >
+        android:background="@drawable/border" >
 
         <ImageView app:srcCompat="@drawable/ic_menu_manage" />
 
@@ -201,8 +201,8 @@
             android:text=""/>
 
         <TextView
-            android:layout_gravity="right"
-            android:text="Pasos" />
+            android:layout_gravity="end"
+            android:text="@string/pasos_string" />
 
     </TableRow>
 
@@ -211,7 +211,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border" >
+        android:background="@drawable/border" >
 
         <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
 
@@ -220,8 +220,8 @@
             android:text="0"/>
 
         <TextView
-            android:layout_gravity="right"
-            android:text="Rapel"/>
+            android:layout_gravity=""
+            android:text="@string/rapel_string"/>
 
     </TableRow>
 
@@ -230,7 +230,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border" >
+        android:background="@drawable/border" >
 
         <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
 
@@ -238,8 +238,8 @@
             android:id="@+id/txt_nieve"/>
 
         <TextView
-            android:layout_gravity="right"
-            android:text="Nieve" />
+            android:layout_gravity="end"
+            android:text="@string/nieve_string" />
 
     </TableRow>
 
@@ -247,10 +247,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border">
+        android:background="@drawable/border">
 
         <TextView
-            android:text="Datos calculados segun criterios MIDE."
+            android:text="@string/datos_extra"
             android:layout_span="3"/>
 
     </TableRow>
@@ -259,7 +259,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@layout/border">
+        android:background="@drawable/border">
 
         <TextView
             android:id="@+id/txt_datos2"

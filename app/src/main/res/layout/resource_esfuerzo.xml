@@ -14,14 +14,14 @@
         android:textSize="18sp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:gravity="right"/>
+        android:gravity="end"/>
 
     <LinearLayout
         android:id="@+id/layout_esf_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@layout/border">
+        android:background="@drawable/border">
 
     </LinearLayout>
 
@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tipo de recorrido" />
+            android:text="@string/tipo_recorrido" />
 
         <Spinner
             android:id="@+id/firme_esf_spinner"
