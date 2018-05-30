@@ -1,23 +1,18 @@
 <resources>
     <string name="app_name">MIDETools</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">MIDETOOLS</string>
-    <string name="nav_header_subtitle">midetools@email.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">MIDETOOLS</string>
+    <string name="nav_header_subtitle" translatable="false">midetools@email.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings">Ajustes</string>
     <string name="action_about">Sobre nosotros</string>
-    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="title_activity_scrolling" translatable="false">ScrollingActivity</string>
 
     <!-- Login -->
 
     <string name="login">Inicio</string>
-    <string name="presentacion">
-        MideTool es la herramienta perfecta para la creación de MIDEs (Método de Información De Excursiones).
-        Con ella podrás crear y compartir tus MIDEs para informar de las caracteristicas y dificultades de tus
-        excursiones, rutas y senderismos. Perfecta para compartirlas posteriormente en tus redes sociales.
-        Mas información en la sección de ayuda.
-    </string>
+    <string name="presentacion">"MideTool es la herramienta perfecta para la creación de MIDEs (Método de Información De Excursiones).         Con ella podrás crear y compartir tus MIDEs para informar de las caracteristicas y dificultades de tus         excursiones, rutas y senderismos. Perfecta para compartirlas posteriormente en tus redes sociales.         Mas información en la sección de ayuda.     "</string>
 
     <string name="login_check">No mostrar esto de nuevo</string>
     <string name="login_bt">Continuar</string>
@@ -79,9 +74,9 @@
         "MIDETOOLS version: 1.0"
     </string>
 
-    <string name="MIDE">MIDE</string>
+    <string name="MIDE" translatable="false">MIDE</string>
     <!-- Resource general -->
-    <string name="titulo_general">GENERAL</string>
+    <string name="titulo_general" translatable="false">GENERAL</string>
     <string name="general_name">Nombre de la ruta</string>
     <string name="general_cond">Condiciones del recorrido</string>
     <string name="general_year">Año de los datos</string>
