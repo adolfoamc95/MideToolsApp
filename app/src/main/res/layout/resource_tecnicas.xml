@@ -1,0 +1,63 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/resource_tecnicas">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_diff"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="end"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pasos" />
+
+    <Spinner
+        android:id="@+id/tecnicas_pasos_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/list_pasos"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rapel" />
+
+    <Spinner
+        android:id="@+id/tecnicas_rapel_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/list_rapel"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nieve_prob" />
+
+    <Spinner
+        android:id="@+id/tecnicas_nieve_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/list_nieve"/>
+
+    <TextView
+        android:id="@+id/txt_pend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nieve_pend" />
+
+    <Spinner
+        android:id="@+id/tecnicas_nieve_spinner_pen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/list_nieve_pend" />
+
+</LinearLayout>

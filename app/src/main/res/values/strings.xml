@@ -1,0 +1,194 @@
+<resources>
+    <string name="app_name">MIDETools</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">MIDETOOLS</string>
+    <string name="nav_header_subtitle">midetools@email.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="action_about">Sobre nosotros</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+
+    <!-- Login -->
+
+    <string name="login">Inicio</string>
+    <string name="presentacion">
+        MideTool es la herramienta perfecta para la creación de MIDEs (Método de Información De Excursiones).
+        Con ella podrás crear y compartir tus MIDEs para informar de las caracteristicas y dificultades de tus
+        excursiones, rutas y senderismos. Perfecta para compartirlas posteriormente en tus redes sociales.
+        Mas información en la sección de ayuda.
+    </string>
+
+    <string name="login_check">No mostrar esto de nuevo</string>
+    <string name="login_bt">Continuar</string>
+
+    <!-- Help -->
+
+    <string name="title_activity_help_scrolling">Ayuda</string>
+    <string name="help_medio">
+        La severidad del medio se calcula con la aplicación de la lista de factores de riesgo: cada 
+        factor se cuenta una sola vez y su cómputo es 0 ó 1, independientemente de su probabilidad y
+        presencia en mayor o menor parte de la excursión. La valoración de la severidad del medio se
+        obtiene de la correspondencia entre la puntuación (de 1 a 5) y la cantidad de elmentos seleccionados 
+        en esta seccioón. Puedes añadir mas factores si lo consideras oportuno desde la seccion de ajustes.
+    </string>
+    <string name="title_help_itdesp">ITINERARIO Y DESPLAZAMIENTO</string>
+    <string name="help_itinerario">
+        Premisa: La mayoría de las excursiones están compuestas por tramos que obtendrían distinta
+        valoración en los aspectos “Desplazamiento” e “Itinerario”; sin embargo el usuario necesita
+        una valoración para su excursión.
+
+        Criterios que deben aplicarse:
+
+        Para cada aspecto se valorarán los distintos tramos. Un tramo es una parte de una excursión
+        con la entidad suficiente para ser considerado una excursión en sí mismo o para que su inclusión
+        o exclusión modifique la valoración de ese aspecto.
+        La excursión se valorará en cada aspecto como el tramo de mayor puntuación.
+        La valoración de un tramo debe ser la del terreno predominante en él, admitiendo pasos aislados
+        de hasta un punto por encima de esta graduación. La mínima valoración que ha de asignarse a un
+        tramo es un punto menor que su paso de grado máximo.
+        En dificultad de Desplazamiento, un tramo que presente un paso de puntuación 4 (uso de las manos)
+        en el que un error del excursionista pueda ocasionar su caída al vacío o deslizamiento por la pendiente,
+        será valorado 4 (y por tanto la excursión también).
+    </string>
+    <string name="help_esfuerzo">
+        Las horas de marcha efectiva de una excursión es la suma del cálculo horario para cada uno de 
+        los diferentes tramos que la componen. La valoración del esfuerzo se obtiene de la correspondencia
+        entre la puntuación (de 1 a 5) y los intervalos horarios (hasta 15 horas).
+    </string>
+
+    <string name="help_diftec">
+        Son las motivadas por accidentes del terreno que dificultan el desplazamiento y que requieren técnicas
+        de progresión aprendidas y/o equipamiento especializado. Son la progresión en nieve, la escalada algo difícil
+        de tramos cortos y el descenso en rápel.
+    </string>
+
+    <!-- About -->
+    <string name="about">
+        "Mi nombre es Adolfo y soy un estudiante de desarrollo de aplicaciones."
+        "He desarrollado esta app para Android como proyecto final del Grado Superior en Desarrollo"
+        "de Aplicaciones Multiplataforma.\n"
+        "Tambien me estoy formando en desarrollo de aplicaciones web y en desarrollo de videojuegos"
+        "en 2D."
+        "\n\n\n"
+        "Si tienes alguna sugerencia sobre como mejorar esta aplicación o crees que se le prodia añadir"
+        "alguna caracteristica que la mejorase no dudes en ponerte en contacto conmigo por correo."
+        "\n\n\n"
+        "Contacta conmigo en: amcdevelopment@gmail.com"
+        "\n\n\n"
+        "MIDETOOLS version: 1.0"
+    </string>
+
+    <!-- Resource general -->
+    <string name="titulo_general">GENERAL</string>
+    <string name="general_name">Nombre de la ruta</string>
+    <string name="general_cond">Condiciones del recorrido</string>
+    <string name="general_year">Año de los datos</string>
+
+    <string-array name="list_cond">
+        <item>Verano</item>
+        <item>Tres estaciones</item>
+        <item>Invierno</item>
+        <item>Todo el año</item>
+    </string-array>
+
+    <string-array name="list_years">
+        <item>2018</item>
+        <item>2017</item>
+        <item>2016</item>
+        <item>2015</item>
+        <item>2014</item>
+        <item>2013</item>
+        <item>2012</item>
+        <item>2011</item>
+        <item>2010</item>
+        <item>2009</item>
+        <item>2008</item>
+        <item>2007</item>
+        <item>2006</item>
+        <item>2005</item>
+        <item>2004</item>
+        <item>2003</item>
+        <item>2002</item>
+        <item>2001</item>
+        <item>2000</item>
+    </string-array>
+
+    <!-- Resource Medio -->
+    <string name="titulo_medio">SEVERIDAD DEL MEDIO</string>
+
+    <!-- Resource Itinerario -->
+    <string name="titulo_it">ORIENTACIÓN EN EL ITINERARIO</string>
+
+    <!-- Resource Desplazamiento -->
+
+    <string name="titulo_desp">DIFICULTAD DEL DESPLAZAMIENTO</string>
+
+    <!-- Rsource Esfuerzo -->
+
+    <string name="titulo_esfuerzo">ESFUERZO</string>
+
+    <string-array name="list_tipoR">
+        <item>Seleccionar</item>
+        <item>Ida y vuelta</item>
+        <item>Circular</item>
+        <item>Travesía</item>
+    </string-array>
+
+    <string-array name="list_firme">
+        <item>Pista</item>
+        <item>Camino</item>
+        <item>Pedrera</item>
+    </string-array>
+
+    <!-- Resource Dif Tecnicas -->
+
+    <string name="titulo_diff">DIFICULTADES TECNICAS</string>
+    <string name="pasos">Pasos de escalada</string>
+    <string name="rapel">Rapel</string>
+    <string name="nieve_prob">Probabilidad de nieve</string>
+    <string name="nieve_pend">Pendiente de nieve</string>
+
+    <string-array name="list_pasos">
+        <item>Ninguno</item>
+        <item>II+</item>
+        <item>III</item>
+        <item>III+</item>
+        <item>IV</item>
+        <item>IV+</item>
+        <item>V</item>
+    </string-array>
+
+    <string-array name="list_rapel">
+        <item>Ninguno</item>
+        <item>5m</item>
+        <item>10m</item>
+        <item>15m</item>
+        <item>20m</item>
+        <item>25m</item>
+        <item>30m</item>
+        <item>35m</item>
+        <item>40n</item>
+    </string-array>
+
+    <string-array name="list_nieve">
+        <item>Ninguna</item>
+        <item>Posible</item>
+        <item>Muy probable</item>
+    </string-array>
+
+    <string-array name="list_nieve_pend">
+        <item>0º</item>
+        <item>10º</item>
+        <item>20º</item>
+        <item>30º</item>
+        <item>40º</item>
+        <item>50º</item>
+        <item>60º</item>
+        <item>70º</item>
+        <item>80º</item>
+        <item>90º</item>
+    </string-array>
+
+
+</resources>

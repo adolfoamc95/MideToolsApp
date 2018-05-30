@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/resource_general">
+
+    <TextView
+        android:id="@+id/titulo_general"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="right"/>
+
+    <TextView
+        android:id="@+id/general_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/general_name" />
+
+    <EditText
+        android:id="@+id/txt_general_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:singleLine="true"/>
+
+    <TextView
+        android:id="@+id/general_condiciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/general_cond" />
+
+    <Spinner
+        android:id="@+id/general_condiciones_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/list_cond" />
+
+    <TextView
+        android:id="@+id/general_año"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/general_year" />
+
+    <Spinner
+        android:id="@+id/general_año_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/list_years" />
+
+</LinearLayout>

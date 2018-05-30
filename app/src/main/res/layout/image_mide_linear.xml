@@ -1,0 +1,271 @@
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/table_layout">
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border">
+        <TextView
+            android:text="MIDE"
+            android:layout_span="3"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border">
+        <TextView
+            android:id="@+id/txt_nombre"
+            android:layout_span="3"/>
+
+    </TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border">
+
+        <ImageView app:srcCompat="@drawable/ic_menu_manage" />
+
+        <TextView
+            android:id="@+id/txt_horario" />
+
+        <TextView
+            android:layout_gravity="right"
+            android:text="Horario" />
+
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border">
+
+        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+
+        <TextView
+            android:id="@+id/txt_des_sub"/>
+
+        <TextView
+            android:layout_gravity="right"
+            android:text="Desnivel de subida" />
+
+
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border">
+
+        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+
+        <TextView
+            android:id="@+id/txt_des_baj"/>
+
+        <TextView
+            android:layout_gravity="right"
+            android:text="Desnivel de bajada" />
+
+
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border">
+
+        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+
+        <TextView
+            android:id="@+id/txt_dist"/>
+
+        <TextView
+            android:layout_gravity="right"
+            android:text="Distancia horizontal" />
+
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border">
+
+        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+
+        <TextView
+            android:id="@+id/txt_tipo" />
+
+        <TextView
+            android:layout_gravity="right"
+            android:text="Tipo de recorrido" />
+
+
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border">
+
+        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+
+        <TextView
+            android:id="@+id/txt_nota_sev" />
+
+        <TextView
+            android:layout_gravity="right"
+            android:text="Severidad del medio natural" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border">
+
+        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+
+        <TextView
+            android:id="@+id/txt_nota_or"/>
+
+        <TextView
+            android:layout_gravity="right"
+            android:text="Orientación del itinerario" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border">
+
+        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+
+        <TextView
+            android:id="@+id/txt_nota_despl"/>
+
+        <TextView
+            android:layout_gravity="right"
+            android:text="Dificultad en el desplazamiento" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border">
+
+        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+
+        <TextView
+            android:id="@+id/txt_nota_esf"/>
+
+        <TextView
+            android:layout_gravity="right"
+            android:text="Cantidad de esfuerzo necesario" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/row_pasos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border" >
+
+        <ImageView app:srcCompat="@drawable/ic_menu_manage" />
+
+        <TextView
+            android:id="@+id/txt_pasos"
+            android:text=""/>
+
+        <TextView
+            android:layout_gravity="right"
+            android:text="Pasos" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/row_rapel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border" >
+
+        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+
+        <TextView
+            android:id="@+id/txt_rapel"
+            android:text="0"/>
+
+        <TextView
+            android:layout_gravity="right"
+            android:text="Rapel"/>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/row_nieve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border" >
+
+        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+
+        <TextView
+            android:id="@+id/txt_nieve"/>
+
+        <TextView
+            android:layout_gravity="right"
+            android:text="Nieve" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border">
+
+        <TextView
+            android:text="Datos calculados segun criterios MIDE."
+            android:layout_span="3"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@layout/border">
+
+        <TextView
+            android:id="@+id/txt_datos2"
+            android:text="Mas Datos adiccionales"
+            android:layout_span="3"/>
+
+    </TableRow>
+
+</TableLayout>
