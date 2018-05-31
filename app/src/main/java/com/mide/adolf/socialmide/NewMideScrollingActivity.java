@@ -113,8 +113,12 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                     db.close();
                 }
 
+                LinearLayout.LayoutParams checkboxParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                checkboxParams.topMargin = 10;
+                checkboxParams.bottomMargin =10;
+
                 for(String s: opciones) {
-                   CheckBox checkBox = new CheckBox(getApplicationContext());
+                   CheckBox checkBox = (CheckBox) getLayoutInflater().inflate(R.layout.style_checkbox, null);
                    checkBox.setText(s);
                     checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                         @Override
@@ -128,7 +132,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                             }
                         }
                     });
-                   linearLayout2.addView(checkBox);
+                   linearLayout2.addView(checkBox, checkboxParams);
                 }
 
                 layout.addView(linearLayout2);
@@ -142,20 +146,23 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                 TextView txt_titulo = linearLayout3.findViewById(R.id.titulo_rb);
                 RadioGroup radioGroup = new RadioGroup(this);
 
-
                 if(radioGroup == null) break;
                 txt_titulo.setText(getResources().getString(R.string.titulo_it));
 
                 String[] array1 = getResources().getStringArray(R.array.options_rb_1);
 
+                LinearLayout.LayoutParams rbParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                rbParams.topMargin = 10;
+                rbParams.bottomMargin =10;
+
                 for(String s: array1) {
-                    RadioButton radioButton = new RadioButton(getApplicationContext());
+                    RadioButton radioButton = (RadioButton) getLayoutInflater().inflate(R.layout.style_radio_button, null);
                     LinearLayout.LayoutParams params = new RadioGroup.LayoutParams(
                             RadioGroup.LayoutParams.WRAP_CONTENT,
                             RadioGroup.LayoutParams.WRAP_CONTENT);
                     radioButton.setLayoutParams(params);
                     radioButton.setText(s);
-                    radioGroup.addView(radioButton);
+                    radioGroup.addView(radioButton, rbParams);
                 }
 
                 radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -185,14 +192,17 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
                 String[] array2 = getResources().getStringArray(R.array.options_rb_2);
 
+                LinearLayout.LayoutParams rbParams2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                rbParams2.topMargin = 10;
+                rbParams2.bottomMargin =10;
                 for(String s: array2) {
-                    RadioButton radioButton = new RadioButton(getApplicationContext());
+                    RadioButton radioButton = (RadioButton) getLayoutInflater().inflate(R.layout.style_radio_button, null);
                     LinearLayout.LayoutParams params = new RadioGroup.LayoutParams(
                             RadioGroup.LayoutParams.WRAP_CONTENT,
                             RadioGroup.LayoutParams.WRAP_CONTENT);
                     radioButton.setLayoutParams(params);
                     radioButton.setText(s);
-                    radioGroup2.addView(radioButton);
+                    radioGroup2.addView(radioButton, rbParams2);
                 }
                 radioGroup2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
@@ -220,6 +230,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                 linearLayout4.addView(radioGroup2);
                 layout.addView(linearLayout4);
                 añadirSeparador();
+                linearLayout4.setBackgroundColor(getResources().getColor(R.color.colorPrimaryLight));
                 return linearLayout4;
 
 
@@ -424,21 +435,6 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
             case 6:
 
-                /*int pPasos, pRapel, pNieve;
-
-                Spinner spPasos = contenedor.findViewById(R.id.tecnicas_pasos_spinner);
-                Spinner spRapel = contenedor.findViewById(R.id.tecnicas_rapel_spinner);
-                Spinner spNieve = contenedor.findViewById(R.id.tecnicas_nieve_spinner_pen);
-
-                pPasos = spPasos.getSelectedItemPosition();
-                pNieve = spNieve.getSelectedItemPosition();
-                pRapel = spRapel.getSelectedItemPosition();
-
-
-
-                mideObject.setnPasos(pPasos);
-                mideObject.setMetrosRapel(pNieve);
-                mideObject.setAngPend(pRapel);*/
                 return true;
 
 

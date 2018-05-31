@@ -22,4 +22,7 @@
         <item name="android:textColor">@color/colorPrimaryLight</item>
     </style>
 
+    <style name="AppTheme.EdText.Text" parent="Widget.AppCompat.EditText">
+    </style>
+
 </resources>

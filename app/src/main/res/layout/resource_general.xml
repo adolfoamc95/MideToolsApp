@@ -28,7 +28,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/general_condiciones"
@@ -40,7 +41,8 @@
         android:id="@+id/general_condiciones_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/list_cond" />
+        android:entries="@array/list_cond"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/general_año"
@@ -52,6 +54,7 @@
         android:id="@+id/general_año_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/list_years" />
+        android:entries="@array/list_years"
+        android:layout_marginBottom="20dp"/>
 
 </LinearLayout>
