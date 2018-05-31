@@ -165,7 +165,7 @@ public class ShowNewMide extends AppCompatActivity {
         txtNombre.setText(String.valueOf(object.getNombre()));
         txtdesSub.setText(String.valueOf(object.getDesSubida())+" m");
         txtdesBaj.setText(String.valueOf(object.getDesBajada())+" m");
-        String distancia = String.format("%.2f", object.getDistancia());
+        String distancia = String.valueOf(object.getDistancia());
         txtDist.setText(distancia+" Km");
         txtSev.setText(String.valueOf(object.getNotaSev()));
         txtOr.setText(String.valueOf(object.getNotaOr()));

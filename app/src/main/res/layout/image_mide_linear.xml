@@ -1,18 +1,22 @@
 <TableLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:id="@+id/table_layout">
 
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border_table"
+        android:padding="5dp">
+
         <TextView
+            android:layout_span="3"
             android:text="@string/MIDE"
-            android:layout_span="3"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </TableRow>
 
@@ -20,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border_table">
         <TextView
             android:id="@+id/txt_nombre"
             android:layout_span="3"/>
@@ -30,14 +34,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border_table">
 
-        <ImageView app:srcCompat="@drawable/ic_menu_manage" />
+        <ImageView
+            android:layout_width="33dp"
+            android:layout_height="18dp"
+            app:srcCompat="@mipmap/ic_reloj" />
 
         <TextView
             android:id="@+id/txt_horario" />
 
         <TextView
+            android:gravity="end"
             android:layout_gravity="end"
             android:text="@string/horario" />
 
@@ -48,9 +56,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border_table">
 
-        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="18dp"
+            app:srcCompat="@mipmap/ic_dessub" />
 
         <TextView
             android:id="@+id/txt_des_sub"/>
@@ -67,9 +78,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border_table">
 
-        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="18dp"
+            app:srcCompat="@mipmap/ic_desbaj" />
 
         <TextView
             android:id="@+id/txt_des_baj"/>
@@ -86,9 +100,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border_table">
 
-        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="16dp"
+            app:srcCompat="@mipmap/ic_distancia" />
 
         <TextView
             android:id="@+id/txt_dist"/>
@@ -104,9 +121,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border_table">
 
-        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="19dp"
+            app:srcCompat="@mipmap/ic_circulo" />
 
         <TextView
             android:id="@+id/txt_tipo" />
@@ -123,9 +143,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border_table">
 
-        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+        <ImageView
+            android:layout_height="15dp"
+            app:srcCompat="@mipmap/ic_montona" />
 
         <TextView
             android:id="@+id/txt_nota_sev" />
@@ -140,9 +162,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border_table">
 
-        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+        <ImageView
+            android:layout_width="13dp"
+            android:layout_height="17dp"
+            app:srcCompat="@mipmap/ic_orientation" />
 
         <TextView
             android:id="@+id/txt_nota_or"/>
@@ -157,9 +182,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border_table">
 
-        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+        <ImageView
+            android:layout_width="9dp"
+            android:layout_height="17dp"
+            app:srcCompat="@mipmap/ic_pie" />
 
         <TextView
             android:id="@+id/txt_nota_despl"/>
@@ -174,9 +202,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border_table">
 
-        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="17dp"
+            app:srcCompat="@mipmap/ic_heart" />
 
         <TextView
             android:id="@+id/txt_nota_esf"/>
@@ -192,9 +223,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border" >
+        android:background="@drawable/border_table" >
 
-        <ImageView app:srcCompat="@drawable/ic_menu_manage" />
+        <ImageView
+            android:layout_width="4dp"
+            android:layout_height="18dp"
+            app:srcCompat="@mipmap/ic_alpinista" />
 
         <TextView
             android:id="@+id/txt_pasos"
@@ -211,9 +245,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border" >
+        android:background="@drawable/border_table" >
 
-        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+        <ImageView
+            android:layout_width="9dp"
+            android:layout_height="16dp"
+            app:srcCompat="@mipmap/ic_flechapabajo" />
 
         <TextView
             android:id="@+id/txt_rapel"
@@ -230,9 +267,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border" >
+        android:background="@drawable/border_table" >
 
-        <ImageView app:srcCompat="@drawable/ic_menu_manage"/>
+        <ImageView
+            android:layout_width="13dp"
+            android:layout_height="21dp"
+            app:srcCompat="@mipmap/ic_piolet" />
 
         <TextView
             android:id="@+id/txt_nieve"/>
@@ -247,7 +287,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border_table">
 
         <TextView
             android:text="@string/datos_extra"
@@ -259,7 +299,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@drawable/border">
+        android:background="@drawable/border_table">
 
         <TextView
             android:id="@+id/txt_datos2"
