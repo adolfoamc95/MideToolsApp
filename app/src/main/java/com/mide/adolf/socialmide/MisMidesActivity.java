@@ -32,6 +32,7 @@ public class MisMidesActivity extends AppCompatActivity
     private ArrayList<MideObject> datos;
     private int lastId = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

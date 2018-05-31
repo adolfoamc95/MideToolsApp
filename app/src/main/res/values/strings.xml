@@ -12,7 +12,7 @@
     <!-- Login -->
 
     <string name="login">Inicio</string>
-    <string name="presentacion">"MideTool es la herramienta perfecta para la creación de MIDEs (Método de Información De Excursiones).         Con ella podrás crear y compartir tus MIDEs para informar de las caracteristicas y dificultades de tus         excursiones, rutas y senderismos. Perfecta para compartirlas posteriormente en tus redes sociales.         Mas información en la sección de ayuda.     "</string>
+    <string name="presentacion">"MideTool es la herramienta perfecta para la creación de MIDEs (Método de Información De Excursiones). Con ella podrás crear y compartir tus MIDEs para informar de las caracteristicas y dificultades de tus excursiones, rutas y senderismos. Perfecta para compartirlas posteriormente en tus redes sociales. Mas información en la sección de ayuda."</string>
 
     <string name="login_check">No mostrar esto de nuevo</string>
     <string name="login_bt">Continuar</string>
@@ -60,18 +60,7 @@
 
     <!-- About -->
     <string name="about">
-        "Mi nombre es Adolfo y soy un estudiante de desarrollo de aplicaciones."
-        "He desarrollado esta app para Android como proyecto final del Grado Superior en Desarrollo"
-        "de Aplicaciones Multiplataforma.\n"
-        "Tambien me estoy formando en desarrollo de aplicaciones web y en desarrollo de videojuegos"
-        "en 2D."
-        "\n\n\n"
-        "Si tienes alguna sugerencia sobre como mejorar esta aplicación o crees que se le prodia añadir"
-        "alguna caracteristica que la mejorase no dudes en ponerte en contacto conmigo por correo."
-        "\n\n\n"
-        "Contacta conmigo en: amcdevelopment@gmail.com"
-        "\n\n\n"
-        "MIDETOOLS version: 1.0"
+        Mi nombre es Adolfo y soy un estudiante de desarrollo de aplicaciones. He desarrollado esta app para Android como proyecto final del Grado Superior en Desarrollo de Aplicaciones Multiplataforma. Tambien me estoy formando en desarrollo de aplicaciones web y en desarrollo de videojuegos en 2D. Si tienes alguna sugerencia sobre como mejorar esta aplicación o crees que se le prodia añadir alguna caracteristica que la mejorase no dudes en ponerte en contacto conmigo por correo."\n\n\n" Contacta conmigo en: amcdevelopment@gmail.com "\n\n\n" MIDETOOLS version: 1.0"
     </string>
 
     <string name="MIDE" translatable="false">MIDE</string>
@@ -245,5 +234,7 @@
     <string name="hint_añadir">Escribe aqui tu nueva opción</string>
     <string name="gen_bt_add">Añadir nueva opcion Severidad del Medio</string>
     <string name="bt_lang">Cambiar Idioma</string>
+
+    <string name="interstitial_ad_unit_id">ID_DE_ANUNCIO_INTERSTICIAL</string>
 
 </resources>
