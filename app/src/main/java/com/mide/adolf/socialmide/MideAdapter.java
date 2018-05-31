@@ -36,7 +36,7 @@ public class MideAdapter
 
         public void MideBind(MideObject item) {
 
-            TextView_id.setText(String.valueOf(item.getMideId()));
+            TextView_id.setText("MIDE");
             TextView_nombre.setText(item.getNombre());
             TextView_ano.setText(item.getAño());
         }

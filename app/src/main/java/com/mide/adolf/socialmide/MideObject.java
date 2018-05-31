@@ -14,7 +14,7 @@ public class MideObject implements Serializable{
 
     private String horario;
 
-    private double distancia;
+    private String distancia;
 
     private String tipoR;
 
@@ -37,7 +37,7 @@ public class MideObject implements Serializable{
         this.ruta = ruta;
     }
 
-    public MideObject(int id, String nombre, String horario, String epoca, String año, double distancia, int desSubida, int desBajada, int notaSev, int notaOr, int notaDiff, int notaEsf, int metrosRapel, String nPasos, int angPend, String tipoR) {
+    public MideObject(int id, String nombre, String horario, String epoca, String año, String distancia, int desSubida, int desBajada, int notaSev, int notaOr, int notaDiff, int notaEsf, int metrosRapel, String nPasos, int angPend, String tipoR) {
         this.mideId = id;
         this.nombre = nombre;
         this.horario = horario;
@@ -77,7 +77,8 @@ public class MideObject implements Serializable{
     }
 
     public void setHorario(String horario) {
-        this.horario = horario;
+        this.horario = horario.substring(1,3
+        );
     }
 
     public int getDesSubida() {
@@ -245,13 +246,15 @@ public class MideObject implements Serializable{
         }
     }
 
-    public double getDistancia() {
+    public String getDistancia() {
         return distancia;
     }
 
     public void setDistancia(int distanciaM) {
         Log.d("Distancia:", String.valueOf(distanciaM));
-        this.distancia = distanciaM/1000;
+        double duble = distanciaM/1000;
+        String distpart = String.valueOf(duble);
+        this.distancia = distpart;
     }
 
     public int getAngPend() {

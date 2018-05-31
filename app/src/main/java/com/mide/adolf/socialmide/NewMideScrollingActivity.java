@@ -509,7 +509,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
             return false;
         }else if(mideObject.getNotaDiff()==0){
             return false;
-        }else if(mideObject.getDistancia()==0||mideObject.getDesBajada()==0||mideObject.getDesSubida()==0){
+        }else if(mideObject.getDistancia().equals("")||mideObject.getDesBajada()==0||mideObject.getDesSubida()==0){
             return false;
         }else if(mideObject.getTipoR().equals("")){
             return false;
