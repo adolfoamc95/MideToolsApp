@@ -45,4 +45,8 @@
     <string name="hint_añadir">Write your new option here.</string>
     <string name="gen_bt_add">Add new option Severity of the Medium</string>
     <string name="bt_lang">Change language.</string>
+    <string name="delete_quest">Delete this MIDE?</string>
+    <string name="delete_quest2">This is a non-rollback change</string>
+    <string name="yes_opt">YES</string>
+    <string name="no_opt">NO</string>
 </resources>

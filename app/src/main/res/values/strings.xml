@@ -237,4 +237,9 @@
 
     <string name="interstitial_ad_unit_id">ID_DE_ANUNCIO_INTERSTICIAL</string>
 
+    <string name="delete_quest">¿Seguro que desea borrarlo?</string>
+    <string name="delete_quest2">Esto es definitivo.</string>
+    <string name="yes_opt">SI</string>
+    <string name="no_opt">NO</string>
+
 </resources>

@@ -1,40 +1,26 @@
 package com.mide.adolf.socialmide;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.GridLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.Toast;
-
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 
 public class ShowMideActivity extends AppCompatActivity {
 
-    private static Bitmap bitMap;
     private MideObject mideObject;
     BBDDLocal bdhelper;
     SQLiteDatabase db ;
@@ -61,15 +47,42 @@ public class ShowMideActivity extends AppCompatActivity {
                 compartir();
             }
         });
-
+        
         fabDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(delete()){
-                    Intent restartMain = new Intent(getApplicationContext(), MisMidesActivity.class);
-                    startActivity(restartMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
-                    finish();
-                }
+                // Build an AlertDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(ShowMideActivity.this);
+
+                // Set a title for alert dialog
+                builder.setTitle(getResources().getString(R.string.delete_quest));
+
+                // Ask the final question
+                builder.setMessage(getResources().getString(R.string.delete_quest2));
+
+                // Set the alert dialog yes button click listener
+                builder.setPositiveButton(getResources().getString(R.string.yes_opt), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(delete()){
+                            Intent restartMain = new Intent(getApplicationContext(), MisMidesActivity.class);
+                            startActivity(restartMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                            finish();
+                        }
+                    }
+                });
+
+                // Set the alert dialog no button click listener
+                builder.setNegativeButton(getResources().getString(R.string.no_opt), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                // Display the alert dialog on interface
+                dialog.show();
+
             }
         });
     }
