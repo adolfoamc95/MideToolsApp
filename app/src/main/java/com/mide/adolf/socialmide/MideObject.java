@@ -79,8 +79,7 @@ public class MideObject implements Serializable{
     }
 
     public void setHorario(String horario) {
-        this.horario = horario.substring(1,3
-        );
+        this.horario = horario;
     }
 
     public int getDesSubida() {
