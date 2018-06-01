@@ -10,21 +10,9 @@ public class BBDDLocal extends SQLiteOpenHelper {
         String createMidesSentence = "CREATE TABLE `mides` (" +
                 "  `id` int(11) NOT NULL," +
                 "  `nombre` varchar(256) NOT NULL," +
-                "  `epoca` varchar(20) NOT NULL," +
-                "  `horario` varchar(20) NOT NULL," +
                 "  `ano` varchar(20) NOT NULL," +
-                "  `distancia` varchar(20) NOT NULL," +
-                "  `dispos` varchar(20) NOT NULL," +
-                "  `ruta` varchar(100) NOT NULL," +
-                "  `disneg` varchar(20) NOT NULL," +
-                "  `notaSev` varchar(20) NOT NULL," +
-                "  `notaOr` varchar(20) NOT NULL," +
-                "  `notaDif` varchar(20) NOT NULL," +
-                "  `notaEsf` varchar(20) NOT NULL," +
-                "  `nPasos` varchar(20) NOT NULL," +
-                "  `mRapel` varchar(20) NOT NULL," +
-                "  `nievePend` varchar(20) NOT NULL" +
-                ")" ;
+                "  `ruta` varchar(100) NOT NULL" +
+                ")";
 
     String createOptionsSentence = "CREATE TABLE `options` (" +
             "  `opcion` varchar(1000) NOT NULL" +

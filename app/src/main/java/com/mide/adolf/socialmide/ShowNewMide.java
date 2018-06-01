@@ -106,11 +106,11 @@ public class ShowNewMide extends AppCompatActivity {
 
                                 nuevoRegistroA.put("id", mide1.getMideId());
                                 nuevoRegistroA.put("nombre", mide1.getNombre());
-                                nuevoRegistroA.put("epoca", mide1.getEpoca());
-                                nuevoRegistroA.put("horario", mide1.getHorario());
+                                //nuevoRegistroA.put("epoca", mide1.getEpoca());
+                                // nuevoRegistroA.put("horario", mide1.getHorario());
                                 nuevoRegistroA.put("ano", mide1.getAño());
-                                nuevoRegistroA.put("distancia", String.valueOf(mide1.getDistancia()));
-                                nuevoRegistroA.put("dispos", String.valueOf(mide1.getDesSubida()));
+                                //nuevoRegistroA.put("distancia", String.valueOf(mide1.getDistancia()));
+                                /*nuevoRegistroA.put("dispos", String.valueOf(mide1.getDesSubida()));
                                 nuevoRegistroA.put("disneg", String.valueOf(mide1.getDesBajada()));
                                 nuevoRegistroA.put("notaSev", String.valueOf(mide1.getNotaSev()));
                                 nuevoRegistroA.put("notaOr", String.valueOf(mide1.getNotaOr()));
@@ -118,7 +118,7 @@ public class ShowNewMide extends AppCompatActivity {
                                 nuevoRegistroA.put("notaEsf", String.valueOf(mide1.getNotaEsf()));
                                 nuevoRegistroA.put("nPasos", mide1.getnPasos());
                                 nuevoRegistroA.put("mRapel", String.valueOf(mide1.getMetrosRapel()));
-                                nuevoRegistroA.put("nievePend", String.valueOf(mide1.getAngPend()));
+                                nuevoRegistroA.put("nievePend", String.valueOf(mide1.getAngPend()));*/
                                 nuevoRegistroA.put("ruta", mide1.getRuta());
 
                                 db.insert("mides", null, nuevoRegistroA);

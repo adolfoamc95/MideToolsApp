@@ -28,6 +28,8 @@ public class MideObject implements Serializable{
 
     private String ruta;
 
+    private int checkedIt, checkedDespl, selectedTipo, selectedPasos, selectedRapel, selectedNieve, selectedNievePend, selectedAño, selectedEpoca;
+
     public MideObject(){}
 
     public MideObject(int id, String nombre, String año, String ruta){
@@ -291,5 +293,77 @@ public class MideObject implements Serializable{
 
     public void setRuta(String ruta) {
         this.ruta = ruta;
+    }
+
+    public int getCheckedIt() {
+        return checkedIt;
+    }
+
+    public void setCheckedIt(int checkedIt) {
+        this.checkedIt = checkedIt;
+    }
+
+    public int getCheckedDespl() {
+        return checkedDespl;
+    }
+
+    public void setCheckedDespl(int checkedDespl) {
+        this.checkedDespl = checkedDespl;
+    }
+
+    public int getSelectedPasos() {
+        return selectedPasos;
+    }
+
+    public void setSelectedPasos(int selectedPasos) {
+        this.selectedPasos = selectedPasos;
+    }
+
+    public int getSelectedRapel() {
+        return selectedRapel;
+    }
+
+    public void setSelectedRapel(int selectedRapel) {
+        this.selectedRapel = selectedRapel;
+    }
+
+    public int getSelectedNieve() {
+        return selectedNieve;
+    }
+
+    public void setSelectedNieve(int selectedNieve) {
+        this.selectedNieve = selectedNieve;
+    }
+
+    public int getSelectedNievePend() {
+        return selectedNievePend;
+    }
+
+    public void setSelectedNievePend(int selectedNievePend) {
+        this.selectedNievePend = selectedNievePend;
+    }
+
+    public int getSelectedAño() {
+        return selectedAño;
+    }
+
+    public void setSelectedAño(int selectedAño) {
+        this.selectedAño = selectedAño;
+    }
+
+    public int getSelectedEpoca() {
+        return selectedEpoca;
+    }
+
+    public void setSelectedEpoca(int selectedEpoca) {
+        this.selectedEpoca = selectedEpoca;
+    }
+
+    public int getSelectedTipo() {
+        return selectedTipo;
+    }
+
+    public void setSelectedTipo(int selectedTipo) {
+        this.selectedTipo = selectedTipo;
     }
 }

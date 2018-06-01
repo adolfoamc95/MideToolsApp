@@ -18,21 +18,6 @@
         android:gravity="end"
         android:textColor="@color/colorAccent"/>
 
-    <LinearLayout
-        android:id="@+id/layout_esf_item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/border">
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="3dp" >
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,6 +29,60 @@
             android:layout_height="wrap_content"
             android:entries="@array/list_tipoR"/>
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tiempo de realización" />
+
+        <EditText
+            android:id="@+id/tiempo_esf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="horas"
+            android:inputType="number"
+            android:singleLine="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Distancia" />
+
+        <EditText
+            android:id="@+id/dist_esf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/metros"
+            android:inputType="number"
+            android:singleLine="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ascenso acumulado" />
+
+        <EditText
+            android:id="@+id/des_pos_esf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/metros"
+            android:inputType="number"
+            android:singleLine="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descenso acumulado" />
+
+        <EditText
+            android:id="@+id/des_neg_esf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/metros"
+            android:inputType="number"
+            android:singleLine="true"/>
 
 </LinearLayout>

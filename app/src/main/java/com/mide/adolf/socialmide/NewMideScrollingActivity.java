@@ -236,9 +236,8 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
             case 5:
 
-                final LinearLayout linearLayout5 = (LinearLayout) inflater.inflate(R.layout.resource_esfuerzo, null, false);
+                LinearLayout linearLayout5 = (LinearLayout) inflater.inflate(R.layout.resource_esfuerzo, null, false);
 
-                añadirEsfuerzoItem(linearLayout5);
 
                 layout.addView(linearLayout5);
 
@@ -267,6 +266,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
                             spNievePend.setVisibility(View.VISIBLE);
                             txt_pend.setVisibility(View.VISIBLE);
+                            mideObject.setSelectedNieve(position);
                         }else {
                             spNievePend.setVisibility(View.INVISIBLE);
                             txt_pend.setVisibility(View.INVISIBLE);
@@ -283,6 +283,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         mideObject.setnPasos(position);
+                        mideObject.setSelectedPasos(position);
                     }
 
                     @Override
@@ -295,6 +296,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         mideObject.setAngPend(position);
+                        mideObject.setSelectedNievePend(position);
                     }
 
                     @Override
@@ -307,6 +309,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         mideObject.setMetrosRapel(position);
+                        mideObject.setSelectedRapel(position);
                     }
 
                     @Override
@@ -331,7 +334,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
         layout.addView(linearLayout2);
     }
 
-    private void añadirEsfuerzoItem(LinearLayout principal) {
+    /*private void añadirEsfuerzoItem(LinearLayout principal) {
         LayoutInflater inflater2 = LayoutInflater.from(principal.getContext());
         LinearLayout layoutEsfuerzoItem = (LinearLayout) inflater2.inflate(R.layout.resource_esfuerzo_item, null, false);
         layoutEsfuerzoItem.setId(nEsfItems);
@@ -346,7 +349,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
         if (nhijos >= 2){
             contenedor.removeViewAt(1);
         }
-    }
+    }*/
 
     private boolean recogerDatos(LinearLayout contenedor, int opcion) {
         switch (opcion){
@@ -368,7 +371,9 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                 if(nombre!="") {
                     mideObject.setNombre(nombre);
                     mideObject.setEpoca(spCond.getSelectedItemPosition());
+                    mideObject.setSelectedEpoca(spCond.getSelectedItemPosition());
                     mideObject.setAño(spAño.getSelectedItemPosition());
+                    mideObject.setSelectedAño(spAño.getSelectedItemPosition());
                     String ruta = nombre+mideObject.getMideId();
                     Log.d("newmidescrolingactiv" ,  ruta);
                     mideObject.setRuta(ruta);
@@ -380,12 +385,14 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
                 if(nChecked!=0) {
                     mideObject.setNotaSev(nChecked);
+
                     return true;
                 }
                 return false;
 
             case 3 :
                 if(checkedIt!=0) {
+                    mideObject.setCheckedIt(checkedIt);
                     mideObject.setNotaOr(checkedIt);
                     return true;
                 }
@@ -394,6 +401,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
             case 4:
 
                 if(checkedDes!=0) {
+                    mideObject.setCheckedDespl(checkedDes);
                     mideObject.setNotaDiff(checkedDes);
                     return true;
                 }
@@ -402,28 +410,30 @@ public class NewMideScrollingActivity extends AppCompatActivity {
             case 5:
                 int tipoR;
                 String distancia, desBaj, desSub;
+                double horas;
 
-                LinearLayout contenedor_esf = (LinearLayout) contenedor.findViewById(R.id.layout_esf_item);
-                EditText txtDist = contenedor_esf.findViewById(R.id.dist_esf);
-                EditText txtPos = contenedor_esf.findViewById(R.id.txt_esf_despos);
-                EditText txtNeg = contenedor_esf.findViewById(R.id.txt_esf_desneg);
-                Spinner spinner = contenedor_esf.findViewById(R.id.firme_tipo_spinner);
+                EditText txtDist = contenedor.findViewById(R.id.dist_esf);
+                EditText tiempo = contenedor.findViewById(R.id.tiempo_esf);
+                EditText txtPos = contenedor.findViewById(R.id.des_pos_esf);
+                EditText txtNeg = contenedor.findViewById(R.id.des_neg_esf);
                 Spinner spinner1 = contenedor.findViewById(R.id.firme_esf_spinner);
 
 
 
                 distancia = txtDist.getText().toString()+"";
+                horas = Double.parseDouble(tiempo.getText().toString());
                 desBaj = txtNeg.getText().toString()+"";
                 desSub = txtPos.getText().toString()+"";
                 tipoR = spinner1.getSelectedItemPosition();
 
 
 
-                if(distancia!= "" && tipoR != 0) {
+                if(distancia!= "" && tipoR != 0 && horas !=0) {
                     if(desSub == "") desSub = "0";
                     if(desBaj == "") desBaj = "0";
-                  int notaesf = calculoNotaTramo(Integer.valueOf(txtDist.getText().toString()), Integer.valueOf(txtPos.getText().toString()), Integer.valueOf(txtNeg.getText().toString()), spinner.getSelectedItemPosition());
+                  int notaesf = calculoNotaTramo(horas);
 
+                    mideObject.setSelectedTipo(tipoR);
                     mideObject.setTipoR(tipoR);
                     mideObject.setDistancia(Integer.valueOf(distancia));
                     mideObject.setDesSubida(Integer.valueOf(desSub));
@@ -442,8 +452,8 @@ public class NewMideScrollingActivity extends AppCompatActivity {
         return false;
     }
 
-    private int calculoNotaTramo(int distancia, int despos, int desneg, int pista){
-
+    private int calculoNotaTramo(double hora){
+        /*
         double oneKm = 1000;
         double velPos = 400, velNeg = 600;
         double horas;
@@ -479,7 +489,8 @@ public class NewMideScrollingActivity extends AppCompatActivity {
         }else {
             horas = horasRec + (totalDesn/2);
         }
-
+        */
+        double horas = hora;
         mideObject.setHorario(String.valueOf(horas));
 
         if(horas<=1){
