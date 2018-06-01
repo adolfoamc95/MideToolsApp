@@ -39,23 +39,23 @@ public class MideObject implements Serializable{
         this.ruta = ruta;
     }
 
-    public MideObject(int id, String nombre, String horario, String epoca, String año, String distancia, int desSubida, int desBajada, int notaSev, int notaOr, int notaDiff, int notaEsf, int metrosRapel, String nPasos, int angPend, String tipoR) {
-        this.mideId = id;
+    public MideObject(int mideId, String nombre, int selectedEpoca, int selectedAño, int checkedIt, int checkedDespl, int selectedTipo, String horario, int distMetros, int desSubida, int desBajada, int selectedPasos, int selectedRapel, int selectedNieve, int selectedNievePend, String ruta) {
+        this.mideId = mideId;
         this.nombre = nombre;
+        this.selectedEpoca = selectedEpoca;
+        this.selectedAño = selectedAño;
+        this.checkedIt = checkedIt;
+        this.checkedDespl = checkedDespl;
+        this.selectedTipo = selectedTipo;
         this.horario = horario;
-        this.epoca = epoca;
-        this.año = año;
-        this.distancia = distancia;
+        this.distMetros = distMetros;
         this.desSubida = desSubida;
         this.desBajada = desBajada;
-        this.notaSev = notaSev;
-        this.notaOr = notaOr;
-        this.notaDiff = notaDiff;
-        this.notaEsf = notaEsf;
-        this.metrosRapel = metrosRapel;
-        this.nPasos = nPasos;
-        this.angPend = angPend;
-        this.tipoR = tipoR;
+        this.selectedPasos = selectedPasos;
+        this.selectedRapel = selectedRapel;
+        this.selectedNieve = selectedNieve;
+        this.selectedNievePend = selectedNievePend;
+        this.ruta = ruta;
     }
 
     public int getMideId() {

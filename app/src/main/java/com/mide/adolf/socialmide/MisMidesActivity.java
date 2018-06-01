@@ -236,6 +236,10 @@ public class MisMidesActivity extends AppCompatActivity
     }
 
     private void deleteCache(){
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("editId", 0);
+        editor.commit();
         File myDir = new File(getApplicationContext().getCacheDir()+"/");
         if (myDir.isDirectory()) {
             String[] children = myDir.list();

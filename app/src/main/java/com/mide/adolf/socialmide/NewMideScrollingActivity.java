@@ -33,10 +33,12 @@ public class NewMideScrollingActivity extends AppCompatActivity {
     private int nChecked = 0;
     private int checkedIt = 0, checkedDes =0;
     private MideObject mideObject = new MideObject();
-    private int nEsfItems = 0;
+    private MideObject editMide;
     BBDDLocal bdhelper;
     SQLiteDatabase db ;
     ArrayList<String> opciones;
+    int editId = 0;
+    boolean edit= false;
 
 
 
@@ -51,13 +53,21 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
         layout = (ViewGroup) findViewById(R.id.content);
 
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        editId = prefs.getInt("editId", 0);
+        Log.d("editId", String.valueOf(editId));
+        if(editId!=0){
+            rellenarEdit();
+            edit = true;
+        }
 
-        final LinearLayout ll1 = añadirGrupos(1);
-        final LinearLayout ll2 = añadirGrupos(2);
-        final LinearLayout ll3 = añadirGrupos(3);
-        final LinearLayout ll4 = añadirGrupos(4);
-        final LinearLayout ll5 = añadirGrupos(5);
-        final LinearLayout ll6 = añadirGrupos(6);
+
+        final LinearLayout ll1 = añadirGrupos(1, edit);
+        final LinearLayout ll2 = añadirGrupos(2, edit);
+        final LinearLayout ll3 = añadirGrupos(3, edit);
+        final LinearLayout ll4 = añadirGrupos(4, edit);
+        final LinearLayout ll5 = añadirGrupos(5, edit);
+        final LinearLayout ll6 = añadirGrupos(6, edit);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -69,9 +79,11 @@ public class NewMideScrollingActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
 
-    private LinearLayout añadirGrupos(int nGrupo){
+    private LinearLayout añadirGrupos(int nGrupo, boolean edit){
 
         int grupo = nGrupo;
 
@@ -82,6 +94,14 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                 LinearLayout linearLayout = (LinearLayout) inflater.inflate(R.layout.resource_general, null, false);
                 TextView tituloG = (TextView) linearLayout.findViewById(R.id.titulo_general);
                 tituloG.setText(getResources().getString(R.string.titulo_general));
+                if(edit){
+                    EditText nombre = linearLayout.findViewById(R.id.txt_general_name);
+                    nombre.setText(editMide.getNombre());
+                    Spinner epoca = linearLayout.findViewById(R.id.general_condiciones_spinner);
+                    epoca.setSelection(editMide.getSelectedEpoca());
+                    Spinner año = linearLayout.findViewById(R.id.general_año_spinner);
+                    año.setSelection(editMide.getSelectedAño());
+                }
                 layout.addView(linearLayout);
                 añadirSeparador();
                 return linearLayout;
@@ -141,6 +161,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
 
             case 3:
+                int selectedOptIt=0;
                 LinearLayout linearLayout3 = (LinearLayout) inflater.inflate(R.layout.resource_radiobutton, null, false);
 
                 TextView txt_titulo = linearLayout3.findViewById(R.id.titulo_rb);
@@ -163,6 +184,10 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                     radioButton.setLayoutParams(params);
                     radioButton.setText(s);
                     radioGroup.addView(radioButton, rbParams);
+                    selectedOptIt++;
+                    if(edit && selectedOptIt==editMide.getCheckedIt()){
+                        radioGroup.check(radioButton.getId());
+                    }
                 }
 
                 radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -179,7 +204,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
 
             case 4:
-
+                int selectedOptDes= 0;
                 LinearLayout linearLayout4 = (LinearLayout) inflater.inflate(R.layout.resource_radiobutton, null, false);
 
 
@@ -203,6 +228,10 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                     radioButton.setLayoutParams(params);
                     radioButton.setText(s);
                     radioGroup2.addView(radioButton, rbParams2);
+                    selectedOptDes++;
+                    if(edit && selectedOptDes==editMide.getCheckedIt()){
+                        radioGroup2.check(radioButton.getId());
+                    }
                 }
                 radioGroup2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
@@ -237,7 +266,18 @@ public class NewMideScrollingActivity extends AppCompatActivity {
             case 5:
 
                 LinearLayout linearLayout5 = (LinearLayout) inflater.inflate(R.layout.resource_esfuerzo, null, false);
-
+                if(edit){
+                    Spinner tipoR = linearLayout5.findViewById(R.id.firme_esf_spinner);
+                    tipoR.setSelection(editMide.getSelectedTipo());
+                    EditText editTiempo = linearLayout5.findViewById(R.id.tiempo_esf);
+                    editTiempo.setText(editMide.getHorario());
+                    EditText editDist = linearLayout5.findViewById(R.id.dist_esf);
+                    editDist.setText(String.valueOf(editMide.getDistMetros()));
+                    EditText editAsc = linearLayout5.findViewById(R.id.des_pos_esf);
+                    editAsc.setText(String.valueOf(editMide.getDesSubida()));
+                    EditText editDesc = linearLayout5.findViewById(R.id.des_neg_esf);
+                    editDesc.setText(String.valueOf(editMide.getDesBajada()));
+                }
 
                 layout.addView(linearLayout5);
 
@@ -257,6 +297,13 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
                 spNievePend.setVisibility(View.INVISIBLE);
                 txt_pend.setVisibility(View.INVISIBLE);
+
+                if(edit){
+                    sppasos.setSelection(editMide.getSelectedPasos());
+                    sprapel.setSelection(editMide.getSelectedRapel());
+                    spNieve.setSelection(editMide.getSelectedNieve());
+                    spNievePend.setSelection(editMide.getSelectedNievePend());
+                }
 
                 spNieve.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
@@ -395,6 +442,10 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                     mideObject.setCheckedIt(checkedIt);
                     mideObject.setNotaOr(checkedIt);
                     return true;
+                }else if(edit){
+                    mideObject.setCheckedIt(editMide.getCheckedIt());
+                    mideObject.setNotaOr(editMide.getCheckedIt());
+                    return true;
                 }
                 return false;
 
@@ -403,6 +454,10 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                 if(checkedDes!=0) {
                     mideObject.setCheckedDespl(checkedDes);
                     mideObject.setNotaDiff(checkedDes);
+                    return true;
+                }else if(edit){
+                    mideObject.setCheckedDespl(editMide.getCheckedDespl());
+                    mideObject.setNotaDiff(editMide.getCheckedDespl());
                     return true;
                 }
                 return false;
@@ -433,7 +488,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                     if(desBaj == "") desBaj = "0";
                   int notaesf = calculoNotaTramo(horas);
 
-
+                    mideObject.setHorario(String.valueOf(tiempo.getText()));
                     mideObject.setSelectedTipo(tipoR);
                     mideObject.setTipoR(tipoR);
                     mideObject.setDistancia(Integer.valueOf(distancia));
@@ -493,7 +548,6 @@ public class NewMideScrollingActivity extends AppCompatActivity {
         }
         */
         double horas = hora;
-        mideObject.setHorario(String.valueOf(horas));
 
         if(horas<=1){
             return 1;
@@ -570,5 +624,40 @@ public class NewMideScrollingActivity extends AppCompatActivity {
             toast1.show();
         }
 
+    }
+
+    private void rellenarEdit(){
+        BBDDLocal bdhelper = new BBDDLocal(this, "editMide", null, 1);
+        SQLiteDatabase db = bdhelper.getWritableDatabase();
+
+        String[] args = new String[] {String.valueOf(editId)};
+        Cursor c = db.rawQuery(" SELECT * FROM editMide WHERE id=? ", args);
+
+        if(c.moveToFirst()) {
+            do {
+
+                int id = c.getInt(0);
+                String nombre = c.getString(1);
+                int epoca = c.getInt(2);
+                int ano = c.getInt(3);
+                int itOp = c.getInt(4);
+                int desOp = c.getInt(5);
+                int tipoOp = c.getInt(6);
+                String horas =c.getString(7);
+                int dist = c.getInt(8);
+                int despos = c.getInt(9);
+                int desneg = c.getInt(10);
+                int pasoOp = c.getInt(11);
+                int rapelOp = c.getInt(12);
+                int nieve = c.getInt(13);
+                int nieveP = c.getInt(14);
+                String ruta = c.getString(15);
+
+                editMide = new MideObject(id, nombre, epoca, ano, itOp, desOp, tipoOp, horas, dist, despos, desneg, pasoOp, rapelOp, nieve, nieveP, ruta);
+
+            } while (c.moveToNext());
+
+            db.close();
+        }
     }
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -40,11 +41,19 @@ public class ShowMideActivity extends AppCompatActivity {
 
         FloatingActionButton fabShare = findViewById(R.id.floatingActionButton_share);
         FloatingActionButton fabDel = findViewById(R.id.floatingActionButton_delete);
+        FloatingActionButton fabEdit = findViewById(R.id.floatingActionButton_edit);
 
         fabShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 compartir();
+            }
+        });
+
+        fabEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editar();
             }
         });
 
@@ -85,6 +94,16 @@ public class ShowMideActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void editar() {
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("editId", mideObject.getMideId());
+        editor.commit();
+
+        Intent intentEdit = new Intent(getApplicationContext(), NewMideScrollingActivity.class);
+        startActivity(intentEdit);
     }
 
     private void cargar(ImageView imageView){

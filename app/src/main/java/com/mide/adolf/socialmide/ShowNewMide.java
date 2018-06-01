@@ -30,8 +30,6 @@ import java.io.IOException;
 
 public class ShowNewMide extends AppCompatActivity {
 
-    BBDDLocal bdhelper;
-    SQLiteDatabase db ;
     MideObject mideObject;
 
     @Override
