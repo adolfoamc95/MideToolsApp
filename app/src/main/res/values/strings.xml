@@ -237,9 +237,22 @@
 
     <string name="interstitial_ad_unit_id">ID_DE_ANUNCIO_INTERSTICIAL</string>
 
-    <string name="delete_quest">¿Seguro que desea borrarlo?</string>
-    <string name="delete_quest2">Esto es definitivo.</string>
+    <string name="delete_quest">¿Guardar este mide?</string>
+    <string name="delete_quest2">Se añadirá a la memoria de su dispositivo.</string>
+
+    <string name="save_quest">¿Seguro que desea borrarlo?</string>
+    <string name="save_quest2">Esto es definitivo.</string>
+
     <string name="yes_opt">SI</string>
     <string name="no_opt">NO</string>
+
+    <!-- MENUN lATERAL -->
+
+    <string name="home_menu">Mis MIDEs</string>
+    <string name="new_menu">Muevo MIDE</string>
+    <string name="more_menu">Más</string>
+    <string name="help_menu">Ayuda</string>
+    <string name="settings_menu">Ajustes</string>
+    <string name="about_menu">Sobre mí</string>
 
 </resources>
