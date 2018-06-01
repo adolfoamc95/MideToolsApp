@@ -77,7 +77,7 @@ public class ShowNewMide extends AppCompatActivity {
 
 
                 // Build an AlertDialog
-                AlertDialog.Builder builder = new AlertDialog.Builder(ShowMideActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(ShowNewMide.this);
 
                 // Set a title for alert dialog
                 builder.setTitle(getResources().getString(R.string.delete_quest));
