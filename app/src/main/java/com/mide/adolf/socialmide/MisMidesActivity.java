@@ -185,6 +185,10 @@ public class MisMidesActivity extends AppCompatActivity
     protected void onRestart() {
         Log.d("MisMidesActivity", "OnRestart...");
         super.onRestart();
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("editId", 0);
+        editor.commit();
         recargarLista();
     }
 

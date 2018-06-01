@@ -6,23 +6,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_main"
-            android:title="Mis MIDEs" />
+            android:title="@string/home_menu" />
         <item
             android:id="@+id/nav_new"
-            android:title="New Mide" />
+            android:title="@string/new_menu" />
     </group>
 
-    <item android:title="More">
+    <item android:title="@string/more_menu">
         <menu>
             <item
                 android:id="@+id/nav_help"
-                android:title="Help" />
+                android:title="@string/help_menu" />
             <item
                 android:id="@+id/nav_settings"
-                android:title="Settings" />
+                android:title="@string/settings_menu" />
             <item
                 android:id="@+id/nav_about"
-                android:title="About us" />
+                android:title="@string/about_menu" />
         </menu>
     </item>
 

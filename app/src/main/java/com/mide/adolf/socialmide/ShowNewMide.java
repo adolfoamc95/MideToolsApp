@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.support.design.widget.FloatingActionButton;
@@ -31,6 +32,8 @@ import java.io.IOException;
 public class ShowNewMide extends AppCompatActivity {
 
     MideObject mideObject;
+    boolean edit = false;
+    int editId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,14 @@ public class ShowNewMide extends AppCompatActivity {
 
         FloatingActionButton fab = findViewById(R.id.floatingActionButton_save);
         setClickOnSaveFab(fab);
+
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        editId = prefs.getInt("editId", 0);
+        Log.d("editId", String.valueOf(editId));
+        if(editId!=0){
+            edit = true;
+        }
+
     }
 
 
@@ -88,11 +99,12 @@ public class ShowNewMide extends AppCompatActivity {
                         view.setDrawingCacheEnabled(true);
                         view.buildDrawingCache();
                         Bitmap bm = view.getDrawingCache();
+                        if(edit){
+                            delete();
+                        }
                         if(bm != null){
-                            Log.d(getClass().getName(), "Bitmap NO NULO");
                             String nombreImagen = mideObject.getRuta();
                             String ruta = guardarImagen(getApplicationContext(), nombreImagen, bm);
-                            Log.d(getClass().getName(), ruta);
 
                             if(guardarDatosMide() && guardarDatosEdit()){
                                 Toast toast1 = Toast.makeText(getApplicationContext(), "Su MIDE se ha guardado en su dispostivo", Toast.LENGTH_SHORT);
@@ -206,22 +218,15 @@ public class ShowNewMide extends AppCompatActivity {
 
             nuevoRegistroA.put("id", mide1.getMideId());
             nuevoRegistroA.put("nombre", mide1.getNombre());
-            //nuevoRegistroA.put("epoca", mide1.getEpoca());
-            // nuevoRegistroA.put("horario", mide1.getHorario());
             nuevoRegistroA.put("ano", mide1.getAño());
-            //nuevoRegistroA.put("distancia", String.valueOf(mide1.getDistancia()));
-                                /*nuevoRegistroA.put("dispos", String.valueOf(mide1.getDesSubida()));
-                                nuevoRegistroA.put("disneg", String.valueOf(mide1.getDesBajada()));
-                                nuevoRegistroA.put("notaSev", String.valueOf(mide1.getNotaSev()));
-                                nuevoRegistroA.put("notaOr", String.valueOf(mide1.getNotaOr()));
-                                nuevoRegistroA.put("notaDif", String.valueOf(mide1.getNotaDiff()));
-                                nuevoRegistroA.put("notaEsf", String.valueOf(mide1.getNotaEsf()));
-                                nuevoRegistroA.put("nPasos", mide1.getnPasos());
-                                nuevoRegistroA.put("mRapel", String.valueOf(mide1.getMetrosRapel()));
-                                nuevoRegistroA.put("nievePend", String.valueOf(mide1.getAngPend()));*/
             nuevoRegistroA.put("ruta", mide1.getRuta());
 
-            db.insert("mides", null, nuevoRegistroA);
+            if(!edit) {
+                db.insert("mides", null, nuevoRegistroA);
+            }else{
+                String[] args = new String[]{String.valueOf(editId)};
+                db.update("mides", nuevoRegistroA, "id=?", args);
+            }
             Log.d("BBDD", "mideobject inserted");
             db.close();
 
@@ -255,11 +260,36 @@ public class ShowNewMide extends AppCompatActivity {
             nuevoRegistroA.put("npendOp", mide1.getSelectedNievePend());
             nuevoRegistroA.put("ruta", mide1.getRuta());
 
-            db.insert("editMide", null, nuevoRegistroA);
+            if(!edit) {
+                db.insert("editMide", null, nuevoRegistroA);
+            }else {
+                String[] args = new String[]{String.valueOf(editId)};
+                db.update("editMide", nuevoRegistroA, "id=?", args);
+            }
             Log.d("BBDD", "mideedit inserted");
             db.close();
             return true;
         }
         return false;
+    }
+
+    private boolean delete() {
+
+        // Delete from internal storage.
+        ContextWrapper cw = new ContextWrapper(this.getApplicationContext());
+
+        File directory = cw.getDir("imagenes", Context.MODE_PRIVATE);
+        File mypath=new File(directory,mideObject.getRuta()+".png");
+
+        if(mypath.delete()) {
+            return true;
+        }else {
+            Toast toast1 =
+                    Toast.makeText(getApplicationContext(),
+                            "Ha habido un problema con el acceso a la memoria Interna", Toast.LENGTH_SHORT);
+
+            toast1.show();
+            return false;
+        }
     }
 }

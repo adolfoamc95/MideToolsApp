@@ -153,13 +153,33 @@ public class ShowMideActivity extends AppCompatActivity {
         if(mypath.delete()) {
 
             // Delete from DB
-            bdhelper = new BBDDLocal(this, "mides", null, 1);
-            db = bdhelper.getWritableDatabase();
+
+            BBDDLocal bdhelper = new BBDDLocal(this, "mides", null, 1);
+            SQLiteDatabase db = bdhelper.getWritableDatabase();
 
             String whereClause = "id=?";
             String[] whereArgs = new String[]{String.valueOf(mideObject.getMideId())};
 
             if (db.delete("mides", whereClause, whereArgs) > 0) {
+                db.close();
+
+            } else {
+                Toast toast1 =
+                        Toast.makeText(getApplicationContext(),
+                                "Ha habido un problema con el borrado de su MIDE", Toast.LENGTH_SHORT);
+
+                toast1.show();
+                return false;
+            }
+
+            BBDDLocal bdhelper1 = new BBDDLocal(this, "editMide", null, 1);
+            SQLiteDatabase db1 = bdhelper1.getWritableDatabase();
+
+            String whereClause1 = "id=?";
+            String[] whereArgs1 = new String[]{String.valueOf(mideObject.getMideId())};
+
+            if (db1.delete("editMide", whereClause1, whereArgs1) > 0) {
+                db1.close();
                 return true;
             } else {
                 Toast toast1 =
