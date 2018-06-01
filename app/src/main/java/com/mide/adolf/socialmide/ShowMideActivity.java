@@ -47,7 +47,7 @@ public class ShowMideActivity extends AppCompatActivity {
                 compartir();
             }
         });
-        
+
         fabDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

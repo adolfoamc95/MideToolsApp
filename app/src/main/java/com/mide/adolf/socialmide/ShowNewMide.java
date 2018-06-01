@@ -1,8 +1,10 @@
 package com.mide.adolf.socialmide;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -72,61 +74,90 @@ public class ShowNewMide extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LinearLayout view = (LinearLayout) findViewById(R.id.content_table);
-                view.setDrawingCacheEnabled(true);
-                view.buildDrawingCache();
-                Bitmap bm = view.getDrawingCache();
-                if(bm != null){
-                    Log.d(getClass().getName(), "Bitmap NO NULO");
-                    String nombreImagen = mideObject.getRuta();
-                    String ruta = guardarImagen(getApplicationContext(), nombreImagen, bm);
-                    Log.d(getClass().getName(), ruta);
-
-                    if (db != null) {
-                        MideObject mide1 = mideObject;
-
-                        ContentValues nuevoRegistroA = new ContentValues();
-
-                        nuevoRegistroA.put("id", mide1.getMideId());
-                        nuevoRegistroA.put("nombre", mide1.getNombre());
-                        nuevoRegistroA.put("epoca", mide1.getEpoca());
-                        nuevoRegistroA.put("horario", mide1.getHorario());
-                        nuevoRegistroA.put("ano", mide1.getAño());
-                        nuevoRegistroA.put("distancia", String.valueOf(mide1.getDistancia()));
-                        nuevoRegistroA.put("dispos", String.valueOf(mide1.getDesSubida()));
-                        nuevoRegistroA.put("disneg", String.valueOf(mide1.getDesBajada()));
-                        nuevoRegistroA.put("notaSev", String.valueOf(mide1.getNotaSev()));
-                        nuevoRegistroA.put("notaOr", String.valueOf(mide1.getNotaOr()));
-                        nuevoRegistroA.put("notaDif", String.valueOf(mide1.getNotaDiff()));
-                        nuevoRegistroA.put("notaEsf", String.valueOf(mide1.getNotaEsf()));
-                        nuevoRegistroA.put("nPasos", mide1.getnPasos());
-                        nuevoRegistroA.put("mRapel", String.valueOf(mide1.getMetrosRapel()));
-                        nuevoRegistroA.put("nievePend", String.valueOf(mide1.getAngPend()));
-                        nuevoRegistroA.put("ruta", mide1.getRuta());
-
-                        db.insert("mides", null, nuevoRegistroA);
-                        Log.d("BBDD", "mideobject inserted");
-                        db.close();
-
-                        Toast toast1 =
-                                Toast.makeText(getApplicationContext(),
-                                        "Su MIDE se ha guardado en su dispostivo", Toast.LENGTH_SHORT);
 
 
-                        toast1.show();
+                // Build an AlertDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(ShowMideActivity.this);
 
-                        Intent restartMain = new Intent(getApplicationContext(), MisMidesActivity.class);
-                        startActivity(restartMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
-                        finish();
+                // Set a title for alert dialog
+                builder.setTitle(getResources().getString(R.string.delete_quest));
+
+                // Ask the final question
+                builder.setMessage(getResources().getString(R.string.delete_quest2));
+
+                // Set the alert dialog yes button click listener
+                builder.setPositiveButton(getResources().getString(R.string.yes_opt), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        LinearLayout view = (LinearLayout) findViewById(R.id.content_table);
+                        view.setDrawingCacheEnabled(true);
+                        view.buildDrawingCache();
+                        Bitmap bm = view.getDrawingCache();
+                        if(bm != null){
+                            Log.d(getClass().getName(), "Bitmap NO NULO");
+                            String nombreImagen = mideObject.getRuta();
+                            String ruta = guardarImagen(getApplicationContext(), nombreImagen, bm);
+                            Log.d(getClass().getName(), ruta);
+
+                            if (db != null) {
+                                MideObject mide1 = mideObject;
+
+                                ContentValues nuevoRegistroA = new ContentValues();
+
+                                nuevoRegistroA.put("id", mide1.getMideId());
+                                nuevoRegistroA.put("nombre", mide1.getNombre());
+                                nuevoRegistroA.put("epoca", mide1.getEpoca());
+                                nuevoRegistroA.put("horario", mide1.getHorario());
+                                nuevoRegistroA.put("ano", mide1.getAño());
+                                nuevoRegistroA.put("distancia", String.valueOf(mide1.getDistancia()));
+                                nuevoRegistroA.put("dispos", String.valueOf(mide1.getDesSubida()));
+                                nuevoRegistroA.put("disneg", String.valueOf(mide1.getDesBajada()));
+                                nuevoRegistroA.put("notaSev", String.valueOf(mide1.getNotaSev()));
+                                nuevoRegistroA.put("notaOr", String.valueOf(mide1.getNotaOr()));
+                                nuevoRegistroA.put("notaDif", String.valueOf(mide1.getNotaDiff()));
+                                nuevoRegistroA.put("notaEsf", String.valueOf(mide1.getNotaEsf()));
+                                nuevoRegistroA.put("nPasos", mide1.getnPasos());
+                                nuevoRegistroA.put("mRapel", String.valueOf(mide1.getMetrosRapel()));
+                                nuevoRegistroA.put("nievePend", String.valueOf(mide1.getAngPend()));
+                                nuevoRegistroA.put("ruta", mide1.getRuta());
+
+                                db.insert("mides", null, nuevoRegistroA);
+                                Log.d("BBDD", "mideobject inserted");
+                                db.close();
+
+                                Toast toast1 =
+                                        Toast.makeText(getApplicationContext(),
+                                                "Su MIDE se ha guardado en su dispostivo", Toast.LENGTH_SHORT);
+
+
+                                toast1.show();
+
+                                Intent restartMain = new Intent(getApplicationContext(), MisMidesActivity.class);
+                                startActivity(restartMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                                finish();
+                            }
+                        }else {
+                            Log.d(getClass().getName(), "Bitmap NULL");
+                            Toast toast1 =
+                                    Toast.makeText(getApplicationContext(),
+                                            "Ha habido un problema con el generado de su MIDE", Toast.LENGTH_SHORT);
+
+                            toast1.show();
+                        }
                     }
-                }else {
-                    Log.d(getClass().getName(), "Bitmap NULL");
-                    Toast toast1 =
-                            Toast.makeText(getApplicationContext(),
-                                    "Ha habido un problema con el generado de su MIDE", Toast.LENGTH_SHORT);
+                });
 
-                    toast1.show();
-                }
+                // Set the alert dialog no button click listener
+                builder.setNegativeButton(getResources().getString(R.string.no_opt), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                // Display the alert dialog on interface
+                dialog.show();
+
             }
         });
     }
