@@ -7,12 +7,31 @@ import android.util.Log;
 
 public class BBDDLocal extends SQLiteOpenHelper {
 
-        String createMidesSentence = "CREATE TABLE `mides` (" +
-                "  `id` int(11) NOT NULL," +
-                "  `nombre` varchar(256) NOT NULL," +
-                "  `ano` varchar(20) NOT NULL," +
-                "  `ruta` varchar(100) NOT NULL" +
-                ")";
+    String createMidesSentence = "CREATE TABLE `mides` (" +
+            "  `id` int(11) NOT NULL," +
+            "  `nombre` varchar(256) NOT NULL," +
+            "  `ano` varchar(20) NOT NULL," +
+            "  `ruta` varchar(100) NOT NULL" +
+            ")";
+
+    String createEditableMideSentence = "CREATE TABLE `editMide` (" +
+            "  `id` int(11) NOT NULL," +
+            "  `nombre` varchar(256) NOT NULL," +
+            "  `epoca` int(2) NOT NULL," +
+            "  `ano` int(2) NOT NULL," +
+            "  `itOp` int(2) NOT NULL," +
+            "  `desOp` int(2) NOT NULL," +
+            "  `tipoOp` int(2) NOT NULL," +
+            "  `horas` varchar(10) NOT NULL," +
+            "  `distancia` int(10) NOT NULL," +
+            "  `despos` int(10) NOT NULL," +
+            "  `desneg` int(10) NOT NULL," +
+            "  `pasosOp` int(2) NOT NULL," +
+            "  `rapelOp` int(2) NOT NULL," +
+            "  `nieveOp` int(2) NOT NULL," +
+            "  `npendOp` int(2) NOT NULL," +
+            "  `ruta` varchar(100) NOT NULL" +
+            ")";
 
     String createOptionsSentence = "CREATE TABLE `options` (" +
             "  `opcion` varchar(1000) NOT NULL" +
@@ -25,6 +44,7 @@ public class BBDDLocal extends SQLiteOpenHelper {
         @Override
         public void onCreate(SQLiteDatabase sqLiteDatabase) {
             try{
+                sqLiteDatabase.execSQL(createEditableMideSentence);
                 sqLiteDatabase.execSQL(createMidesSentence);
                 sqLiteDatabase.execSQL(createOptionsSentence);
 
@@ -40,6 +60,8 @@ public class BBDDLocal extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL(createMidesSentence);
             sqLiteDatabase.execSQL("DROP TABLE IF EXISTS options");
             sqLiteDatabase.execSQL(createOptionsSentence);
+            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS editMide");
+            sqLiteDatabase.execSQL(createEditableMideSentence);
 
         }
 }

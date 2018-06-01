@@ -433,9 +433,11 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                     if(desBaj == "") desBaj = "0";
                   int notaesf = calculoNotaTramo(horas);
 
+
                     mideObject.setSelectedTipo(tipoR);
                     mideObject.setTipoR(tipoR);
                     mideObject.setDistancia(Integer.valueOf(distancia));
+                    mideObject.setDistMetros(Integer.valueOf(distancia));
                     mideObject.setDesSubida(Integer.valueOf(desSub));
                     mideObject.setDesBajada(Integer.valueOf(desBaj));
                     mideObject.setNotaEsf(notaesf);

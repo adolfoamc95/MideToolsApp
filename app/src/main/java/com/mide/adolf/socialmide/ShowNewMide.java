@@ -43,9 +43,6 @@ public class ShowNewMide extends AppCompatActivity {
 
         cargarDatos(mideObject);
 
-        bdhelper = new BBDDLocal(this, "mides", null, 1);
-        db = bdhelper.getWritableDatabase();
-
         FloatingActionButton fab = findViewById(R.id.floatingActionButton_save);
         setClickOnSaveFab(fab);
     }
@@ -99,43 +96,14 @@ public class ShowNewMide extends AppCompatActivity {
                             String ruta = guardarImagen(getApplicationContext(), nombreImagen, bm);
                             Log.d(getClass().getName(), ruta);
 
-                            if (db != null) {
-                                MideObject mide1 = mideObject;
-
-                                ContentValues nuevoRegistroA = new ContentValues();
-
-                                nuevoRegistroA.put("id", mide1.getMideId());
-                                nuevoRegistroA.put("nombre", mide1.getNombre());
-                                //nuevoRegistroA.put("epoca", mide1.getEpoca());
-                                // nuevoRegistroA.put("horario", mide1.getHorario());
-                                nuevoRegistroA.put("ano", mide1.getAño());
-                                //nuevoRegistroA.put("distancia", String.valueOf(mide1.getDistancia()));
-                                /*nuevoRegistroA.put("dispos", String.valueOf(mide1.getDesSubida()));
-                                nuevoRegistroA.put("disneg", String.valueOf(mide1.getDesBajada()));
-                                nuevoRegistroA.put("notaSev", String.valueOf(mide1.getNotaSev()));
-                                nuevoRegistroA.put("notaOr", String.valueOf(mide1.getNotaOr()));
-                                nuevoRegistroA.put("notaDif", String.valueOf(mide1.getNotaDiff()));
-                                nuevoRegistroA.put("notaEsf", String.valueOf(mide1.getNotaEsf()));
-                                nuevoRegistroA.put("nPasos", mide1.getnPasos());
-                                nuevoRegistroA.put("mRapel", String.valueOf(mide1.getMetrosRapel()));
-                                nuevoRegistroA.put("nievePend", String.valueOf(mide1.getAngPend()));*/
-                                nuevoRegistroA.put("ruta", mide1.getRuta());
-
-                                db.insert("mides", null, nuevoRegistroA);
-                                Log.d("BBDD", "mideobject inserted");
-                                db.close();
-
-                                Toast toast1 =
-                                        Toast.makeText(getApplicationContext(),
-                                                "Su MIDE se ha guardado en su dispostivo", Toast.LENGTH_SHORT);
-
-
+                            if(guardarDatosMide() && guardarDatosEdit()){
+                                Toast toast1 = Toast.makeText(getApplicationContext(), "Su MIDE se ha guardado en su dispostivo", Toast.LENGTH_SHORT);
                                 toast1.show();
-
                                 Intent restartMain = new Intent(getApplicationContext(), MisMidesActivity.class);
                                 startActivity(restartMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
                                 finish();
                             }
+
                         }else {
                             Log.d(getClass().getName(), "Bitmap NULL");
                             Toast toast1 =
@@ -157,15 +125,6 @@ public class ShowNewMide extends AppCompatActivity {
                 AlertDialog dialog = builder.create();
                 // Display the alert dialog on interface
                 dialog.show();
-
-            }
-        });
-    }
-
-    private void setClickOnShare(Button b) {
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
             }
         });
@@ -237,5 +196,72 @@ public class ShowNewMide extends AppCompatActivity {
 
         tableContent.addView(table);
 
+    }
+
+    private boolean guardarDatosMide(){
+        BBDDLocal bdhelper = new BBDDLocal(this, "mides", null, 1);
+        SQLiteDatabase db = bdhelper.getWritableDatabase();
+        if (db != null) {
+            MideObject mide1 = mideObject;
+
+            ContentValues nuevoRegistroA = new ContentValues();
+
+            nuevoRegistroA.put("id", mide1.getMideId());
+            nuevoRegistroA.put("nombre", mide1.getNombre());
+            //nuevoRegistroA.put("epoca", mide1.getEpoca());
+            // nuevoRegistroA.put("horario", mide1.getHorario());
+            nuevoRegistroA.put("ano", mide1.getAño());
+            //nuevoRegistroA.put("distancia", String.valueOf(mide1.getDistancia()));
+                                /*nuevoRegistroA.put("dispos", String.valueOf(mide1.getDesSubida()));
+                                nuevoRegistroA.put("disneg", String.valueOf(mide1.getDesBajada()));
+                                nuevoRegistroA.put("notaSev", String.valueOf(mide1.getNotaSev()));
+                                nuevoRegistroA.put("notaOr", String.valueOf(mide1.getNotaOr()));
+                                nuevoRegistroA.put("notaDif", String.valueOf(mide1.getNotaDiff()));
+                                nuevoRegistroA.put("notaEsf", String.valueOf(mide1.getNotaEsf()));
+                                nuevoRegistroA.put("nPasos", mide1.getnPasos());
+                                nuevoRegistroA.put("mRapel", String.valueOf(mide1.getMetrosRapel()));
+                                nuevoRegistroA.put("nievePend", String.valueOf(mide1.getAngPend()));*/
+            nuevoRegistroA.put("ruta", mide1.getRuta());
+
+            db.insert("mides", null, nuevoRegistroA);
+            Log.d("BBDD", "mideobject inserted");
+            db.close();
+
+            return true;
+        }
+        return false;
+    }
+
+    private boolean guardarDatosEdit(){
+        BBDDLocal bdhelper = new BBDDLocal(this, "editMide", null, 1);
+        SQLiteDatabase db = bdhelper.getWritableDatabase();
+        if (db != null) {
+            MideObject mide1 = mideObject;
+
+            ContentValues nuevoRegistroA = new ContentValues();
+
+            nuevoRegistroA.put("id", mide1.getMideId());
+            nuevoRegistroA.put("nombre", mide1.getNombre());
+            nuevoRegistroA.put("epoca", mide1.getSelectedEpoca());
+            nuevoRegistroA.put("ano", mide1.getSelectedAño());
+            nuevoRegistroA.put("itOp", mide1.getCheckedIt());
+            nuevoRegistroA.put("desOp", mide1.getCheckedDespl());
+            nuevoRegistroA.put("tipoOp", mide1.getSelectedTipo());
+            nuevoRegistroA.put("horas", mide1.getHorario());
+            nuevoRegistroA.put("distancia", mide1.getDistMetros());
+            nuevoRegistroA.put("despos", mide1.getDesSubida());
+            nuevoRegistroA.put("desneg", mide1.getDesBajada());
+            nuevoRegistroA.put("pasosOp", mide1.getSelectedPasos());
+            nuevoRegistroA.put("rapelOp", mide1.getSelectedRapel());
+            nuevoRegistroA.put("nieveOp", mide1.getSelectedNieve());
+            nuevoRegistroA.put("npendOp", mide1.getSelectedNievePend());
+            nuevoRegistroA.put("ruta", mide1.getRuta());
+
+            db.insert("editMide", null, nuevoRegistroA);
+            Log.d("BBDD", "mideedit inserted");
+            db.close();
+            return true;
+        }
+        return false;
     }
 }

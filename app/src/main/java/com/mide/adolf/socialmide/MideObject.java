@@ -28,7 +28,7 @@ public class MideObject implements Serializable{
 
     private String ruta;
 
-    private int checkedIt, checkedDespl, selectedTipo, selectedPasos, selectedRapel, selectedNieve, selectedNievePend, selectedAño, selectedEpoca;
+    private int checkedIt, checkedDespl, selectedTipo, selectedPasos, selectedRapel, selectedNieve, selectedNievePend, selectedAño, selectedEpoca, distMetros;
 
     public MideObject(){}
 
@@ -364,5 +364,13 @@ public class MideObject implements Serializable{
 
     public void setSelectedTipo(int selectedTipo) {
         this.selectedTipo = selectedTipo;
+    }
+
+    public int getDistMetros() {
+        return distMetros;
+    }
+
+    public void setDistMetros(int distMetros) {
+        this.distMetros = distMetros;
     }
 }

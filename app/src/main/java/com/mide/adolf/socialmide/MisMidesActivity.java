@@ -62,8 +62,8 @@ public class MisMidesActivity extends AppCompatActivity
 
                 int id = c.getInt(0);
                 String nombre = c.getString(1);
-                String año = c.getString(4);
-                String ruta = c.getString(7);
+                String año = c.getString(2);
+                String ruta = c.getString(3);
 
                 datos.add(new MideObject(id, nombre, año, ruta));
                 lastId++;
@@ -200,8 +200,8 @@ public class MisMidesActivity extends AppCompatActivity
 
                 int id = c.getInt(0);
                 String nombre = c.getString(1);
-                String año = c.getString(4);
-                String ruta = c.getString(7);
+                String año = c.getString(2);
+                String ruta = c.getString(3);
                 datos.add(new MideObject(id, nombre, año, ruta));
 
             } while (c.moveToNext());
