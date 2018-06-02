@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="list_cond">
+        <item>Summer</item>
+        <item>Three sessions</item>
+        <item>Winter</item>
+        <item>All year</item>
+    </string-array>
+
+    <string-array name="list_years">
+        <item>2018</item>
+        <item>2017</item>
+        <item>2016</item>
+        <item>2015</item>
+        <item>2014</item>
+        <item>2013</item>
+        <item>2012</item>
+        <item>2011</item>
+        <item>2010</item>
+        <item>2009</item>
+        <item>2008</item>
+        <item>2007</item>
+        <item>2006</item>
+        <item>2005</item>
+        <item>2004</item>
+        <item>2003</item>
+        <item>2002</item>
+        <item>2001</item>
+        <item>2000</item>
+    </string-array>
+
+    <string-array name="list_tipoR">
+        <item>Select</item>
+        <item>Round trip</item>
+        <item>Circular</item>
+        <item>Crossing</item>
+    </string-array>
+
+    <string-array name="list_firme">
+        <item>Runway</item>
+        <item>Pathway</item>
+        <item>Stone road</item>
+    </string-array>
+
+    <string-array name="list_pasos">
+        <item>None</item>
+        <item>II+</item>
+        <item>III</item>
+        <item>III+</item>
+        <item>IV</item>
+        <item>IV+</item>
+        <item>V</item>
+    </string-array>
+
+    <string-array name="list_rapel">
+        <item>None</item>
+        <item>5m</item>
+        <item>10m</item>
+        <item>15m</item>
+        <item>20m</item>
+        <item>25m</item>
+        <item>30m</item>
+        <item>35m</item>
+        <item>40m</item>
+    </string-array>
+
+    <string-array name="list_nieve">
+        <item>None</item>
+        <item>Possible</item>
+        <item>Very likely</item>
+    </string-array>
+
+    <string-array name="list_nieve_pend">
+        <item>0º</item>
+        <item>10º</item>
+        <item>20º</item>
+        <item>30º</item>
+        <item>40º</item>
+        <item>50º</item>
+        <item>60º</item>
+        <item>70º</item>
+        <item>80º</item>
+        <item>90º</item>
+    </string-array>
+
+    <string-array name="options">
+        <item>Exposure in the itinerary to spontaneous rock landslides </item>
+        <item>Exposure in the itinerary to spontaneous snow or ice landslides </item>
+        <item>Exposure in the itinerary to landslides caused by the group or another</item>
+        <item>Eventuality that a fall of a hiker on the itinerary causes a fall to the void or a slide down the slope</item>
+        <item>Existence of steps where the use of hands is necessary </item>
+        <item>Torrents without bridge</item>
+        <item>Pass through glaciers or swamps</item>
+        <item>Probable passage through snowfields or glaciers, regardless of their inclination</item>
+        <item>High probability that the temperature drops below 0ºC at night</item>
+        <item>High probability that at night the temperature drops below 5 ° C and the relative humidity exceeds 90%</item>
+        <item>High probability that at night the temperature drops below -10ºC </item>
+        <item>I pass by places that are more than 1 hour away (MIDE time) from an inhabited place, a distress phone or an open road </item>
+        <item>Passing through places that are more than 3 hours away (MIDE time) from an inhabited place, a distress line or an open road</item>
+        <item>The difference between the duration of the day (at the time considered) and the time of the trip is less than 3 hours</item>
+        <item>In some section of the route, the existence of atmospheric phenomena that are not considered infrequent, would considerably increase the difficulty of the itinerary (fog, wind, extreme heat, etc ...)</item>
+        <item>The itinerary, in some section, takes place out of the path and in tangled or irregular terrain that would make it difficult to locate people </item>
+        <item>Exhibition contrasted to bites of snakes or dangerous insects </item>
+        <item> In some section of the route there is another risk factor, typical of each area, which has not been taken into account in the previous list </item>
+    </string-array>
+
+    <string-array name="options_rb_2">
+        <item> Roads and tracks for vehicles regardless of their inclination. Regular floor stairs. Beaches of sand or gravel. </item>
+        <item>Roads with different pavements but that maintain the regularity of the floor, do not have very high steps, and allow to choose the length of the step. Land suitable for horses. Cross country through uniform terrains such as moors, taiga and meadows not very inclined.</item>
+        <item>March through paths with tiers or irregular steps of different size, height, roughness and inclination. Off-trail walking on uneven terrain. Chaos crosses of stones. March for unstable stones.</item>
+        <item>Stretches with steps that require the use of the hands until the I Sup.</item>
+        <item>Climbing steps II to III + of the UIAA scale. Existence of artificial elements for the progression by traction (pins, chains ...). The existence of these steps requires an explicit mention in the section Specific technical difficulties even in the case that the section (and therefore the excursion) were valued 4.</item>
+    </string-array>
+    <string-array name="options_rb_1">
+        <item>Main roads well delimited or marked with clear crosses with explicit or implicit indication. Staying on the road does not require effort to identify the trace. Eventually follow a line marked by an unmistakable geographical feature (a beach, the shore of a lake ... </item>
+        <item>There is a clear path on the ground or signs for continuity. Attention is required for the continuity and the crossing of other traces but without the need for an accurate interpretation of the geographical features. This score would apply to most marked trails that use different types of roads in the same route with numerous crossings: tracks, bridleways, paths, signal-to-signal field (well-placed and maintained). </item>
+        <item>Although the itinerary is developed by traces of path, lines marked by geographical features (rivers, valleys, cornices, ridges ...) or other people's waymarks, the choice of the appropriate itinerary depends on the recognition of the geographical features and the cardinal points.</item>
+        <item>There is no trace on the terrain or security to have reference points on the horizon. The itinerary depends on the understanding of the terrain and the route tracing.</item>
+        <item>The routes and / or natural lines of the itinerary are interrupted by obstacles that have to be bordered.</item>
+    </string-array>
+
+
+</resources>

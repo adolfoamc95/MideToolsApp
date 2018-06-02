@@ -71,34 +71,9 @@
     <string name="general_year">Año de los datos</string>
     <string name="horario">Horario</string>
 
-    <string-array name="list_cond">
-        <item>Verano</item>
-        <item>Tres estaciones</item>
-        <item>Invierno</item>
-        <item>Todo el año</item>
-    </string-array>
 
-    <string-array name="list_years">
-        <item>2018</item>
-        <item>2017</item>
-        <item>2016</item>
-        <item>2015</item>
-        <item>2014</item>
-        <item>2013</item>
-        <item>2012</item>
-        <item>2011</item>
-        <item>2010</item>
-        <item>2009</item>
-        <item>2008</item>
-        <item>2007</item>
-        <item>2006</item>
-        <item>2005</item>
-        <item>2004</item>
-        <item>2003</item>
-        <item>2002</item>
-        <item>2001</item>
-        <item>2000</item>
-    </string-array>
+
+
     
     <string name="des_sub">Desnivel de subida</string>
     <string name="des_baj">Desnivel de bajada</string>
@@ -133,18 +108,7 @@
     <string name="titulo_esfuerzo">ESFUERZO</string>
     <string name="tipo_recorrido">Tipo de recorrido</string>
 
-    <string-array name="list_tipoR">
-        <item>Seleccionar</item>
-        <item>Ida y vuelta</item>
-        <item>Circular</item>
-        <item>Travesía</item>
-    </string-array>
 
-    <string-array name="list_firme">
-        <item>Pista</item>
-        <item>Camino</item>
-        <item>Pedrera</item>
-    </string-array>
 
     <!-- Resource Dif Tecnicas -->
 
@@ -154,84 +118,11 @@
     <string name="nieve_prob">Probabilidad de nieve</string>
     <string name="nieve_pend">Pendiente de nieve</string>
 
-    <string-array name="list_pasos">
-        <item>Ninguno</item>
-        <item>II+</item>
-        <item>III</item>
-        <item>III+</item>
-        <item>IV</item>
-        <item>IV+</item>
-        <item>V</item>
-    </string-array>
 
-    <string-array name="list_rapel">
-        <item>Ninguno</item>
-        <item>5m</item>
-        <item>10m</item>
-        <item>15m</item>
-        <item>20m</item>
-        <item>25m</item>
-        <item>30m</item>
-        <item>35m</item>
-        <item>40n</item>
-    </string-array>
-
-    <string-array name="list_nieve">
-        <item>Ninguna</item>
-        <item>Posible</item>
-        <item>Muy probable</item>
-    </string-array>
-
-    <string-array name="list_nieve_pend">
-        <item>0º</item>
-        <item>10º</item>
-        <item>20º</item>
-        <item>30º</item>
-        <item>40º</item>
-        <item>50º</item>
-        <item>60º</item>
-        <item>70º</item>
-        <item>80º</item>
-        <item>90º</item>
-    </string-array>
 
     <!-- MIdeParams -->
 
-    <string-array name="options">
-        <item>Exposición en el itinerario a desprendimientos espontáneos de piedras</item>
-        <item>Exposición en el itinerario a desprendimientos espontáneos de nieve o hielo</item>
-        <item>Exposición en el itinerario a desprendimientos de piedras provocados por el propio grupo u otro</item>
-        <item>Eventualidad de que una caída de un excursionista sobre el propio itinerario le provoque una caída al vacío o un deslizamiento por la pendiente</item>
-        <item>Existencia de pasos en que sea necesario el uso de las manos</item>
-        <item>Paso de torrentes sin puente</item>
-        <item>Paso por glaciares o ciénagas</item>
-        <item>Paso probable por neveros o glaciares, independientemente de su inclinación</item>
-        <item>Alta probabilidad de que por la noche la temperatura descienda de 0ºC</item>
-        <item>Alta probabilidad de que por la noche la temperatura descienda de 5 ºC y la humedad relativa supere el 90%</item>
-        <item>Alta probabilidad de que por la noche la temperatura descienda de –10ºC</item>
-        <item>Paso por lugares alejados a más de 1 hora de marcha (horario MIDE) de un lugar habitado, un teléfono de socorro o una carretera abierta</item>
-        <item>Paso por lugares alejados a más de 3 hora de marcha (horario MIDE) de un lugar habitado, un teléfono de socorro o una carretera abierta</item>
-        <item>La diferencia entre la duración del día (en la época considerada) y el horario del recorrido es menor de 3 horas</item>
-        <item>En algún tramo del recorrido, la existencia de fenómenos atmosféricos que no se juzguen infrecuentes, aumentaría considerablemente la dificultad del itinerario (niebla, viento, calor extremo, etc...)</item>
-        <item>El itinerario, en algún tramo, transcurre fuera de traza de camino y por terreno enmarañado o irregular que dificultaría la localización de personas</item>
-        <item>Exposición contrastada a picaduras de serpientes o insectos peligrosos</item>
-        <item>En algún tramo del recorrido existe algún otro factor de riesgo, propio de cada zona, que no ha sido tenido en cuenta en el listado anterior</item>
-    </string-array>
 
-    <string-array name="options_rb_2">
-        <item>Carreteras y pistas para vehículos independientemente de su inclinación. Escaleras de piso regular. Playas de arena o grava.</item>
-        <item>Caminos con diversos firmes pero que mantienen la regularidad del piso, no presentan gradas muy altas, y permiten elegir la longitud del paso. Terreno apto para caballerías. Campo a través por terrenos uniformes como landas, taiga y prados no muy inclinados.</item>
-        <item>Marcha por sendas con gradas o escalones irregulares de distinto tamaño, altura, rugosidad e inclinación. Marcha fuera de senda por terrenos irregulares. Cruces de caos de piedras. Marcha por pedreras inestables.</item>
-        <item>Tramos con pasos que requieren el uso de las manos hasta el I Sup.</item>
-        <item>Pasos de escalada de II hasta el III+ de la escala UIAA. Existencia de elementos artificiales para la progresión por tracción (clavijas, cadenas...). La existencia de estos pasos obliga a una mención explícita en el apartado Dificultades técnicas específicas aún en el caso de que el tramo (y por tanto la excursión) fueran valorados 4.</item>
-    </string-array>
-    <string-array name="options_rb_1">
-        <item>Caminos principales bien delimitados o señalizados con cruces claros con indicación explícita o implícita. Mantenerse sobre el camino no exige esfuerzo de identificación de la traza. Eventualmente seguimiento de una línea marcada por un accidente geográfico inconfundible (una playa, la orilla de un lago...</item>
-        <item>Existe traza clara de camino sobre el terreno o señalización para la continuidad. Se requiere atención para la continuidad y los cruces de otras trazas pero sin necesidad de una interpretación precisa de los accidentes geográficos. Esta puntuación se aplicaría a la mayoría de senderos señalizados que utilizan en un mismo recorrido distintos tipos de caminos con numerosos cruces: pistas, caminos de herradura, sendas, campo a través de señal a señal (bien emplazadas y mantenidas).</item>
-        <item>Aunque el itinerario se desarrolla por trazas de sendero, líneas marcadas por accidentes geográficos (ríos, fondos de los valles, cornisas, crestas...) o marcas de paso de otras personas, la elección del itinerario adecuado depende del reconocimiento de los accidentes geográficos y de los puntos cardinales.</item>
-        <item>No existe traza sobre el terreno ni seguridad de contar con puntos de referencia en el horizonte. El itinerario depende de la comprensión del terreno y del trazado de rumbos.</item>
-        <item>Los rumbos y/o líneas naturales del itinerario son interrumpidos por obstáculos que hay que bordear.</item>
-    </string-array>
 
     <!-- Opciones -->
     <string name="button_añadir">Añadir</string>
@@ -258,5 +149,25 @@
     <string name="help_menu">Ayuda</string>
     <string name="settings_menu">Ajustes</string>
     <string name="about_menu">Sobre mí</string>
+    
+    <!-- MENU LANGUAGE -->
+    
+    <string name="select_lang">Selecciona tu idioma:</string>
+    <string name="es_ES">Español</string>
+    <string name="en_EN">Inglés</string>
+    <string name="metros">metros</string>
+
+    <!-- Toasts -->
+
+    <string name="toast_volver">Pulsa atrás para volver a editar.</string>
+    <string name="toast_guardado">El MIDE se ha guardado en su dispositivo</string>
+    <string name="toast_borrard">El MIDE se ha borrado de su dispositivo</string>
+    <string name="toast_guardado_error">Ha habido un problema con el generado de su MIDE</string>
+    <string name="toast_error_1">Falta nombre de la excursión</string>
+    <string name="toast_error_2">Faltan datos para calcular la orientación</string>
+    <string name="toast_error_3">Debe seleccionar alguna opcion de dificultad</string>
+    <string name="toast_error_4">Faltan datos en la seccion Esfuerzo</string>
+
+
 
 </resources>

@@ -510,43 +510,6 @@ public class NewMideScrollingActivity extends AppCompatActivity {
     }
 
     private int calculoNotaTramo(double hora){
-        /*
-        double oneKm = 1000;
-        double velPos = 400, velNeg = 600;
-        double horas;
-        double horasRec = 0;
-
-
-        // Horas de marcha horizontal
-        double kmRectos = distancia/oneKm;
-
-        switch (pista) {
-            case 0:
-                horasRec = kmRectos/5;
-                break;
-            case 1:
-                horasRec = kmRectos/4;
-                break;
-            case 2:
-                horasRec = kmRectos/3;
-                break;
-        }
-
-
-        // Horas de marcha desnivel positivo
-        double horasPos = despos/velPos;
-
-        // Horas de marcha desnivel negativo
-        double horasNeg = desneg/velNeg;
-
-        double totalDesn = horasNeg+ horasPos;
-
-        if(totalDesn>horasRec){
-            horas = totalDesn + (horasRec/2);
-        }else {
-            horas = horasRec + (totalDesn/2);
-        }
-        */
         double horas = hora;
 
         if(horas<=1){
@@ -585,6 +548,9 @@ public class NewMideScrollingActivity extends AppCompatActivity {
     }
 
     private void showErrors(LinearLayout l1, LinearLayout l2, LinearLayout l3, LinearLayout l4, LinearLayout l5, LinearLayout l6) {
+
+        NestedScrollView scrollView = findViewById(R.id.scroll_view);
+
         if(recogerDatos(l1, 1)){
             recogerDatos(l2, 2);
             if(recogerDatos(l3, 3)){
@@ -598,30 +564,34 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                     }else{
                         Toast toast1 =
                                 Toast.makeText(getApplicationContext(),
-                                        "Flatan datos en la seccion Esfuerzo", Toast.LENGTH_SHORT);
+                                        getResources().getString(R.string.toast_error_4), Toast.LENGTH_SHORT);
 
                         toast1.show();
+                        scrollView.scrollTo(0, l5.getBottom());
                     }
                 }else {
                     Toast toast1 =
                             Toast.makeText(getApplicationContext(),
-                                    "Debe seleccionar alguna opcion de dificultad", Toast.LENGTH_SHORT);
+                                    getResources().getString(R.string.toast_error_3), Toast.LENGTH_SHORT);
 
                     toast1.show();
+                    //scrollView.scrollTo(0, l4.findViewById(R.id.titulo_rb).getBottom());
                 }
             }else {
                 Toast toast1 =
                         Toast.makeText(getApplicationContext(),
-                                "Faltan datos para calcular la orientación", Toast.LENGTH_SHORT);
+                                getResources().getString(R.string.toast_error_2), Toast.LENGTH_SHORT);
 
                 toast1.show();
+                //scrollView.scrollTo(0, l3.findViewById(R.id.titulo_rb).getBottom());
             }
         }else {
             Toast toast1 =
                     Toast.makeText(getApplicationContext(),
-                            "Falta nombre de la excursión", Toast.LENGTH_SHORT);
+                            getResources().getString(R.string.toast_error_1), Toast.LENGTH_SHORT);
 
             toast1.show();
+            //scrollView.scrollTo(0, l1.getBottom());
         }
 
     }

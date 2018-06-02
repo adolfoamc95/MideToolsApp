@@ -49,4 +49,20 @@
     <string name="delete_quest2">This is a non-rollback change</string>
     <string name="yes_opt">YES</string>
     <string name="no_opt">NO</string>
+    <string name="hint_metros">meters</string>
+    <string name="hint_horas">hours</string>
+    <string name="tiempo">Realization time</string>
+    <string name="ascenso">Accumulated ascent</string>
+    <string name="descenso">Accumulated descent</string>
+    <string name="save_quest">Are you sure you want to delete it?</string>
+    <string name="save_quest2">"This is final. "</string>
+    <string name="home_menu">My MIDEs</string>
+    <string name="new_menu">New MIDE</string>
+    <string name="more_menu">More</string>
+    <string name="help_menu">Help</string>
+    <string name="settings_menu">Settings</string>
+    <string name="about_menu">About us</string>
+    <string name="select_lang">Select your language</string>
+    <string name="es_ES">Spanish</string>
+    <string name="en_EN">English</string>
 </resources>

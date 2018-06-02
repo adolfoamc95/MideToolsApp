@@ -1,12 +1,16 @@
 package com.mide.adolf.socialmide;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.TextView;
 
 
 /**
@@ -45,7 +49,57 @@ public class LanguajeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_languaje, container, false);
+        View v = inflater.inflate(R.layout.fragment_languaje, container, false);
+
+        final Switch switchesp = v.findViewById(R.id.switch_es);
+        final Switch switchen = v.findViewById(R.id.switch_en);
+        final TextView texAlert = v.findViewById(R.id.textViewLang);
+        SharedPreferences prefs = getActivity().getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        String lang = prefs.getString("language", "es");
+        if(lang.equals("es")){
+            switchesp.setChecked(true);
+        }else{
+            switchen.setChecked(true);
+        }
+
+        switchesp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    setEsLang();
+                    switchen.setChecked(false);
+                    texAlert.setText("Idioma cambiado a español");
+                }else {
+                    switchen.setChecked(true);
+                }
+            }
+        });
+
+        switchen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    setEnLang();
+                    switchesp.setChecked(false);
+                    texAlert.setText("Language changed to english");
+                }else{
+                    switchesp.setChecked(true);
+                }
+            }
+        });
+        return v;
+    }
+
+    private void setEsLang() {
+        if (mListener != null) {
+            mListener.onFragmentInteraction("setES");
+        }
+    }
+
+    private void setEnLang() {
+        if (mListener != null) {
+            mListener.onFragmentInteraction("setEN");
+        }
     }
 
 

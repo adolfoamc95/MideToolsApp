@@ -86,10 +86,10 @@ public class ShowNewMide extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ShowNewMide.this);
 
                 // Set a title for alert dialog
-                builder.setTitle(getResources().getString(R.string.delete_quest));
+                builder.setTitle(getResources().getString(R.string.save_quest));
 
                 // Ask the final question
-                builder.setMessage(getResources().getString(R.string.delete_quest2));
+                builder.setMessage(getResources().getString(R.string.save_quest2));
 
                 // Set the alert dialog yes button click listener
                 builder.setPositiveButton(getResources().getString(R.string.yes_opt), new DialogInterface.OnClickListener() {
@@ -107,7 +107,7 @@ public class ShowNewMide extends AppCompatActivity {
                             String ruta = guardarImagen(getApplicationContext(), nombreImagen, bm);
 
                             if(guardarDatosMide() && guardarDatosEdit()){
-                                Toast toast1 = Toast.makeText(getApplicationContext(), "Su MIDE se ha guardado en su dispostivo", Toast.LENGTH_SHORT);
+                                Toast toast1 = Toast.makeText(getApplicationContext(), getResources().getString(R.string.toast_guardado), Toast.LENGTH_SHORT);
                                 toast1.show();
                                 Intent restartMain = new Intent(getApplicationContext(), MisMidesActivity.class);
                                 startActivity(restartMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));

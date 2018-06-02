@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MisMidesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,6 +42,7 @@ public class MisMidesActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        setLanguage();
         deleteCache();
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -193,6 +196,7 @@ public class MisMidesActivity extends AppCompatActivity
     }
 
     private void recargarLista() {
+        setLanguage();
         BBDDLocal bdhelper = new BBDDLocal(this, "mides", null, 1);
         SQLiteDatabase db = bdhelper.getWritableDatabase();
 
@@ -251,5 +255,14 @@ public class MisMidesActivity extends AppCompatActivity
                 new File(myDir, children[i]).delete();
             }
         }else Log.d("No es un directorio", "no loes , no lo es!!");
+    }
+
+    private void setLanguage(){
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        String lang = prefs.getString("language", "es");
+        Locale localizacion2 = new Locale("en");
+        Configuration config2 = new Configuration();
+        config2.locale = localizacion2;
+        getResources().updateConfiguration(config2, null);
     }
 }
