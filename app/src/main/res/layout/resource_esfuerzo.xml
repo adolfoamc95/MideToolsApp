@@ -27,54 +27,58 @@
             android:id="@+id/firme_esf_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/list_tipoR"/>
+            android:entries="@array/list_tipoR"
+            android:layout_marginBottom="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tiempo de realización" />
+            android:text="@string/tiempo" />
 
         <EditText
             android:id="@+id/tiempo_esf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="horas"
+            android:hint="@string/hint_horas"
             android:inputType="number"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:layout_marginBottom="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Distancia" />
+            android:text="@string/distancia" />
 
         <EditText
             android:id="@+id/dist_esf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/metros"
+            android:hint="@string/hint_metros"
             android:inputType="number"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:layout_marginBottom="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ascenso acumulado" />
+            android:text="@string/ascenso" />
 
         <EditText
             android:id="@+id/des_pos_esf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/metros"
+            android:hint="@string/hint_metros"
             android:inputType="number"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:layout_marginBottom="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Descenso acumulado" />
+            android:text="@string/descenso" />
 
         <EditText
             android:id="@+id/des_neg_esf"
@@ -83,6 +87,6 @@
             android:ems="10"
             android:hint="@string/metros"
             android:inputType="number"
-            android:singleLine="true"/>
+            android:singleLine="true" />
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.mide.adolf.socialmide;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -23,6 +24,7 @@ public class SettingsActivity extends FragmentActivity
                 getSupportFragmentManager()
                         .beginTransaction()
                         .add(R.id.unique_fragment, generalFragment)
+                        .addToBackStack("general")
                         .commit();
 
     }
@@ -33,6 +35,7 @@ public class SettingsActivity extends FragmentActivity
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.unique_fragment, newMedioObjFragment)
+                .addToBackStack("medio")
                 .commit();
 
     }
@@ -43,6 +46,7 @@ public class SettingsActivity extends FragmentActivity
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.unique_fragment, lang)
+                .addToBackStack("lang")
                 .commit();
 
     }
@@ -52,18 +56,10 @@ public class SettingsActivity extends FragmentActivity
     @Override
     public void onBackPressed() {
 
-        int count = getFragmentManager().getBackStackEntryCount();
+        Intent volver = new Intent(getApplicationContext(), MisMidesActivity.class);
+        startActivity(volver.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+        finish();
 
-        if (count == 0) {
-            super.onBackPressed();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            GeneralFragment fragmentGeneral = new GeneralFragment();
-            transaction.add(R.id.contenedor, fragmentGeneral);
-            transaction.commit();
-        } else {
-            getFragmentManager().popBackStack();
-        }
 
     }
 

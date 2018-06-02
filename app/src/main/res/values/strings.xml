@@ -125,8 +125,12 @@
 
     <!-- Rsource Esfuerzo -->
 
+    <string name="hint_metros">metros</string>
+    <string name="hint_horas">horas</string>
+    <string name="tiempo">Tiempo de realización</string>
+    <string name="ascenso">Ascenso acumulado</string>
+    <string name="descenso">Descenso acumulado</string>
     <string name="titulo_esfuerzo">ESFUERZO</string>
-    <string name="metros">metros</string>
     <string name="tipo_recorrido">Tipo de recorrido</string>
 
     <string-array name="list_tipoR">

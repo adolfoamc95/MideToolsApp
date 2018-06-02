@@ -12,12 +12,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:text="@string/titulo_general" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/titulo_general"
+            android:textColor="@color/colorAccent"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,7 +39,8 @@
             android:layout_margin="@dimen/text_margin"
             android:text="@string/titulo_medio"
             android:textStyle="bold"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,7 +61,8 @@
             android:layout_margin="@dimen/text_margin"
             android:text="@string/title_help_itdesp"
             android:textStyle="bold"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -80,7 +83,8 @@
             android:layout_margin="@dimen/text_margin"
             android:text="@string/titulo_esfuerzo"
             android:textStyle="bold"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,7 +105,8 @@
             android:layout_margin="@dimen/text_margin"
             android:text="@string/titulo_diff"
             android:textStyle="bold"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"/>
 
         <TextView
             android:layout_width="wrap_content"
