@@ -65,4 +65,12 @@
     <string name="select_lang">Select your language</string>
     <string name="es_ES">Spanish</string>
     <string name="en_EN">English</string>
+    <string name="toast_volver">Go back for change options</string>
+    <string name="toast_guardado">Your MIDE was saved</string>
+    <string name="toast_borrard">Your MIDE was deleted</string>
+    <string name="toast_guardado_error">There are a saving error</string>
+    <string name="toast_error_1">Missing name</string>
+    <string name="toast_error_2">" Missing data to calculate orientation"</string>
+    <string name="toast_error_3">"You must select some difficulty option "</string>
+    <string name="toast_error_4">" Missing data in the Effort section"</string>
 </resources>

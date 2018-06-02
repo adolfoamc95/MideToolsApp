@@ -65,4 +65,12 @@
     <string name="select_lang">Selecciona tu idioma:</string>
     <string name="es_ES">Español</string>
     <string name="en_EN">Inglés</string>
+    <string name="toast_volver">Pulsa atrás para volver a editar.</string>
+    <string name="toast_guardado">El MIDE se ha guardado en su dispositivo</string>
+    <string name="toast_borrard">El MIDE se ha borrado de su dispositivo</string>
+    <string name="toast_guardado_error">Ha habido un problema con el generado de su MIDE</string>
+    <string name="toast_error_1">Falta nombre de la excursión</string>
+    <string name="toast_error_2">Faltan datos para calcular la orientación</string>
+    <string name="toast_error_3">Debe seleccionar alguna opcion de dificultad</string>
+    <string name="toast_error_4">Faltan datos en la seccion Esfuerzo</string>
 </resources>

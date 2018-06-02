@@ -260,7 +260,7 @@ public class MisMidesActivity extends AppCompatActivity
     private void setLanguage(){
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         String lang = prefs.getString("language", "es");
-        Locale localizacion2 = new Locale("en");
+        Locale localizacion2 = new Locale(lang);
         Configuration config2 = new Configuration();
         config2.locale = localizacion2;
         getResources().updateConfiguration(config2, null);
