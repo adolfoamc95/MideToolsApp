@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
+/**
+ * Actividad splash que se lanza al principìo de la aplicación y se mantiene durante tres segundos
+ * Controla si hemos pulsado previamente o no la opcion de no mostrar la pantalla de login.
+ */
 public class SplashActivity extends AppCompatActivity {
     // Duración en milisegundos que se mostrará el splash
     private final int DURACION_SPLASH = 3000; // 3 segundos

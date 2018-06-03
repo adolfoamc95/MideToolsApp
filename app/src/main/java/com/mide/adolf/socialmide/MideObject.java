@@ -4,6 +4,9 @@ import android.util.Log;
 
 import java.io.Serializable;
 
+/**
+ * Clase que contiene los datos basicos de un Mide y las opciones elegidas en la creación del mismo.
+ */
 public class MideObject implements Serializable{
 
     private int mideId;

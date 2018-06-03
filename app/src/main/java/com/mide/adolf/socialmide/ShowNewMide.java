@@ -22,18 +22,28 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+
 import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+/**
+ * Actividad desde la que se nos muestra la previsualización del elemento creado.
+ * Esta actividad crea la imagen a guardar y la guarda y guarda una nueva fila en la base de datso interna.
+ */
 public class ShowNewMide extends AppCompatActivity {
 
     MideObject mideObject;
     boolean edit = false;
     int editId = 0;
+
+    private InterstitialAd mInterstitialAd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +51,12 @@ public class ShowNewMide extends AppCompatActivity {
         setContentView(R.layout.activity_show_new_mide);
 
         mideObject = (MideObject) getIntent().getExtras().getSerializable("mideObject");
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544/1033173712");
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         cargarDatos(mideObject);
 
@@ -56,7 +72,13 @@ public class ShowNewMide extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Metodo que guarda una nueva imagen en la memoria interna del dispositivo.
+     * @param context context de la applicación
+     * @param nombre nombre de la imagen
+     * @param imagen imagen a guardar en formato bitmap
+     * @return ruta de la imagen
+     */
     private String guardarImagen (Context context, String nombre, Bitmap imagen){
         ContextWrapper cw = new ContextWrapper(context);
         File dirImages = cw.getDir("imagenes", Context.MODE_PRIVATE);
@@ -75,7 +97,11 @@ public class ShowNewMide extends AppCompatActivity {
         return myPath.getAbsolutePath();
     }
 
-
+    /**
+     * Metodo que proporciona un listener para el boton de guardar y guarda tanto la imagen como una
+     * nueva entrada en la base de datos
+     * @param b boton a implementar el listener
+     */
     private void setClickOnSaveFab (FloatingActionButton b) {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +137,11 @@ public class ShowNewMide extends AppCompatActivity {
                                 toast1.show();
                                 Intent restartMain = new Intent(getApplicationContext(), MisMidesActivity.class);
                                 startActivity(restartMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                                if (mInterstitialAd.isLoaded()) {
+                                    mInterstitialAd.show();
+                                } else {
+                                    Log.d("TAG", "The interstitial wasn't loaded yet.");
+                                }
                                 finish();
                             }
 
@@ -140,6 +171,11 @@ public class ShowNewMide extends AppCompatActivity {
         });
     }
 
+    /**
+     * Metodo que carga los datos del objeto que le ha pasado la actividad de nuevo MIDE y los distribuye
+     * en la tabla
+     * @param object
+     */
     private void cargarDatos(MideObject object) {
 
         LinearLayout tableContent = (LinearLayout) findViewById(R.id.content_table);
@@ -208,6 +244,10 @@ public class ShowNewMide extends AppCompatActivity {
 
     }
 
+    /**
+     * Metodo que guarda la imagen y crea una nueva entrada en la tabla
+     * @return
+     */
     private boolean guardarDatosMide(){
         BBDDLocal bdhelper = new BBDDLocal(this, "mides", null, 1);
         SQLiteDatabase db = bdhelper.getWritableDatabase();
@@ -235,6 +275,11 @@ public class ShowNewMide extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * Metodo que en el caso de editar, borra la imagen anterior existente, crea una nueva y actualiza
+     * la entrada en la tabla
+     * @return true en caso de que todo se haya realizado de forma correcta
+     */
     private boolean guardarDatosEdit(){
         BBDDLocal bdhelper = new BBDDLocal(this, "editMide", null, 1);
         SQLiteDatabase db = bdhelper.getWritableDatabase();
@@ -273,13 +318,20 @@ public class ShowNewMide extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * Metodo que borra la imagen anterior existente en el caso de que sea una edición
+     * @return true si todo se ha realizado de forma correcta
+     */
     private boolean delete() {
 
         // Delete from internal storage.
         ContextWrapper cw = new ContextWrapper(this.getApplicationContext());
 
         File directory = cw.getDir("imagenes", Context.MODE_PRIVATE);
-        File mypath=new File(directory,mideObject.getRuta()+".png");
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        String ruta = prefs.getString("editRuta", "");
+        Log.d("Ruta ha borrar", ruta);
+        File mypath=new File(directory,ruta+".png");
 
         if(mypath.delete()) {
             return true;

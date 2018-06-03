@@ -15,7 +15,10 @@ import android.widget.Button;
 
 import java.util.Locale;
 
-
+/**
+ * Actividad de ajustes.
+ * Desde esta actividad se controla el flujo de los framentos que la componen y el cambio de ajustes.
+ */
 public class SettingsActivity extends FragmentActivity
         implements GeneralFragment.OnGeneralFragmentInteractionListener,
         NewMedioObjFragment.OnNewFragmentInteractionListener,
@@ -34,6 +37,10 @@ public class SettingsActivity extends FragmentActivity
 
     }
 
+    /**
+     * Metodo que se llama si se pulsa la opcion de añadir Opcion de Medio
+     * Este metodo carga el fragmento correspondiente
+     */
     private void clickOnAdd(){
 
         NewMedioObjFragment newMedioObjFragment = new NewMedioObjFragment();
@@ -45,6 +52,10 @@ public class SettingsActivity extends FragmentActivity
 
     }
 
+    /**
+     * Metodo que se llama si se pulsa la opcion de cambiar lenguage
+     * Este metodo carga el fragmento correspondiente
+     */
     private void clickOnLang(){
 
         LanguajeFragment lang = new LanguajeFragment();
@@ -57,7 +68,9 @@ public class SettingsActivity extends FragmentActivity
     }
 
 
-
+    /**
+     * Metodo que controla la pulsación en el boton de atrás
+     */
     @Override
     public void onBackPressed() {
 
@@ -68,6 +81,11 @@ public class SettingsActivity extends FragmentActivity
 
     }
 
+    /**
+     * Metodo que controla las diferentes acciones capturadas en los fragmentos en base a unos tag
+     * enviados por los mismos
+     * @param s tag que indica que metodo ejecutar.
+     */
     @Override
     public void onFragmentInteraction(String s) {
         Log.d("EnFragment", s);
@@ -86,12 +104,6 @@ public class SettingsActivity extends FragmentActivity
                 editor.putString("language", "en");
                 editor.commit();
 
-               /* Locale localizacion = new Locale("es");
-
-                Locale.setDefault(localizacion);
-                Configuration config = new Configuration();
-                config.locale = localizacion;
-                getBaseContext().getResources().updateConfiguration(config, null);*/
                 break;
             case "setES":
 
@@ -101,11 +113,6 @@ public class SettingsActivity extends FragmentActivity
                 editor2.putString("language", "es");
                 editor2.commit();
 
-                Locale localizacion2 = new Locale("en");
-                Locale.setDefault(localizacion2);
-                Configuration config2 = new Configuration();
-                config2.locale = localizacion2;
-                getBaseContext().getResources().updateConfiguration(config2, getBaseContext().getResources().getDisplayMetrics());
                 break;
         }
     }

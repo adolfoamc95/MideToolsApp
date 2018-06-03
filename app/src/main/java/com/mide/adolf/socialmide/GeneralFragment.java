@@ -11,7 +11,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 
-
+/*
+    Fragmento que contine el menú de navegación hacia los otros dos fragmentos que componen esta
+    activity
+ */
 public class GeneralFragment extends Fragment {
 
     private OnGeneralFragmentInteractionListener mListener;
@@ -58,12 +61,18 @@ public class GeneralFragment extends Fragment {
         return view;
     }
 
+    /*  Cuando se pulsa el botton de añadir se captura el evento y se manda a la actividad principal
+        para que esta lo maneje.
+    */
     public void onButtonAddPressed() {
         if (mListener != null) {
             mListener.onFragmentInteraction("add");
         }
     }
 
+    /*  Cuando se pulsa el botton de cambiar idioma se captura el evento y se manda a la actividad principal
+        para que esta lo maneje.
+    */
     public void onButtonLangPressed() {
         if (mListener != null) {
             mListener.onFragmentInteraction("lang");

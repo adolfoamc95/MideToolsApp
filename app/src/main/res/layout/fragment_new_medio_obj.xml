@@ -22,7 +22,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="137dp"
-        android:text="@string/button_añadir" />
+        android:text="@string/button_añadir"
+        style="@style/AppTheme.Button"/>
 
 
 

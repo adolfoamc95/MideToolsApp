@@ -7,6 +7,7 @@ import android.util.Log;
 
 public class BBDDLocal extends SQLiteOpenHelper {
 
+    // Sentencia de creación de la tabla "mides"
     String createMidesSentence = "CREATE TABLE `mides` (" +
             "  `id` int(11) NOT NULL," +
             "  `nombre` varchar(256) NOT NULL," +
@@ -14,6 +15,7 @@ public class BBDDLocal extends SQLiteOpenHelper {
             "  `ruta` varchar(100) NOT NULL" +
             ")";
 
+    // Sentencia de creación de la tabla "edtiMide"
     String createEditableMideSentence = "CREATE TABLE `editMide` (" +
             "  `id` int(11) NOT NULL," +
             "  `nombre` varchar(256) NOT NULL," +
@@ -33,14 +35,17 @@ public class BBDDLocal extends SQLiteOpenHelper {
             "  `ruta` varchar(100) NOT NULL" +
             ")";
 
+    // Sentencia de creación de la tabla "options"
     String createOptionsSentence = "CREATE TABLE `options` (" +
             "  `opcion` varchar(1000) NOT NULL" +
             ")" ;
 
+        // Constructor de la clase
         public BBDDLocal(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
             super(context, name, factory, version);
         }
 
+        // Metodo que crea las tablas al instalar la aplicación
         @Override
         public void onCreate(SQLiteDatabase sqLiteDatabase) {
             try{
@@ -53,6 +58,7 @@ public class BBDDLocal extends SQLiteOpenHelper {
             }
         }
 
+        // Metodo de actualizacíon de las tablas que las borra y las crea de nuevo
         @Override
         public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 

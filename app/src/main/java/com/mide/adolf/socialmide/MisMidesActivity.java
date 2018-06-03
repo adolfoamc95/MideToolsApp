@@ -28,6 +28,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/**
+ * Actividad principal. Contiene un menú de navegación y una lista en la que nos apareceran los elementos
+ * creados.
+ */
 public class MisMidesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -35,6 +39,11 @@ public class MisMidesActivity extends AppCompatActivity
     private int lastId = 0;
 
 
+    /**
+     * Este metodo además de cargar sus elemntos basicos consulta la base de datos y de existir estos
+     * nos los muestra en una lista.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +69,15 @@ public class MisMidesActivity extends AppCompatActivity
         datos = new ArrayList<>();
         Cursor c = db.rawQuery("SELECT * FROM mides", null);
 
+        if(c.moveToLast()) {
+            lastId = c.getInt(0);
+
+            SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+
+            editor.putInt("lastId", lastId);
+            editor.commit();
+        }
         if(c.moveToFirst()) {
             do {
 
@@ -69,20 +87,13 @@ public class MisMidesActivity extends AppCompatActivity
                 String ruta = c.getString(3);
 
                 datos.add(new MideObject(id, nombre, año, ruta));
-                lastId++;
             } while (c.moveToNext());
-
+            c.close();
             db.close();
         }else {
             Toast toast = Toast.makeText(MisMidesActivity.this, "Aún no tienes ningun Mide,  crea algunos!!", Toast.LENGTH_SHORT);
             toast.show();
         }
-
-        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt("lastId", lastId);
-        editor.commit();
 
         DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -195,6 +206,9 @@ public class MisMidesActivity extends AppCompatActivity
         recargarLista();
     }
 
+    /**
+     * Metodo que recarga la lista cuando la actividad se reestablece despues de ser pausada.
+     */
     private void recargarLista() {
         setLanguage();
         BBDDLocal bdhelper = new BBDDLocal(this, "mides", null, 1);
@@ -202,6 +216,16 @@ public class MisMidesActivity extends AppCompatActivity
 
         datos = new ArrayList<>();
         Cursor c = db.rawQuery("SELECT * FROM mides", null);
+
+        if(c.moveToLast()) {
+            lastId = c.getInt(0);
+
+            SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+
+            editor.putInt("lastId", lastId);
+            editor.commit();
+        }
 
         if(c.moveToFirst()) {
             do {
@@ -213,7 +237,7 @@ public class MisMidesActivity extends AppCompatActivity
                 datos.add(new MideObject(id, nombre, año, ruta));
 
             } while (c.moveToNext());
-
+            c.close();
             db.close();
         }else {
             Toast toast = Toast.makeText(MisMidesActivity.this, "Aún no tienes ningun Mide,  crea algunos!!", Toast.LENGTH_SHORT);
@@ -243,6 +267,9 @@ public class MisMidesActivity extends AppCompatActivity
 
     }
 
+    /**
+     * Metodo que borra las imagenes almacenadas en la cache de la aplicación al compartir una imagen.
+     */
     private void deleteCache(){
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
@@ -257,6 +284,9 @@ public class MisMidesActivity extends AppCompatActivity
         }else Log.d("No es un directorio", "no loes , no lo es!!");
     }
 
+    /**
+     * Metodo que cambia el lenguage de la app en base a lo elegido en los ajustes.
+     */
     private void setLanguage(){
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         String lang = prefs.getString("language", "es");

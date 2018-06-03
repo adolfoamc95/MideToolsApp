@@ -13,7 +13,7 @@
     <string name="help_itinerario">" Premise: Most of the excursions are composed of sections that would obtain different         valuation in the aspects \"Displacement\" and \"Itinerary\"; however the user needs         a valuation for your excursion.          Criteria to be applied:          For each aspect, the different sections will be evaluated. A section is a part of an excursion         with sufficient entity to be considered an excursion in itself or for its inclusion         or exclusion modify the assessment of that aspect.         The excursion will be rated in each aspect as the highest rated stretch.         The valuation of a section must be that of the predominant terrain in it, admitting isolated steps         up to a point above this graduation. The minimum assessment to be assigned to a         stretch is a minor point that its step of maximum degree.         In Difficulty of Displacement, a section that presents a step of score 4 (use of the hands)         in which an error of the hiker can cause his fall to the emptiness or sliding down the slope,         It will be rated 4 (and therefore the tour also)."</string>
     <string name="help_esfuerzo">" The hours of effective march of an excursion is the sum of the hour calculation for each of         the different sections that compose it. The effort evaluation is obtained from the correspondence         between the score (from 1 to 5) and the time intervals (up to 15 hours)."</string>
     <string name="help_diftec">Son las motivadas por accidentes del terreno que dificultan el desplazamiento y que requieren técnicas         de progresión aprendidas y/o equipamiento especializado. Son la progresión en nieve, la escalada algo difícil         de tramos cortos y el descenso en rápel.</string>
-    <string name="about">" \"My name is Adolfo and I am an application development student.\"         \"I developed this app for Android as a final project of the Higher Degree in Development\"         \"Multiplatform Applications. \\ n\"         \"I'm also training in web application development and videogame development\"         \"in 2D.\"         \"\\ n \\ n \\ n\"         \"If you have any suggestions on how to improve this application or do you think it could be added\"         \"Any feature that improves it, do not hesitate to contact me by mail.\"         \"\\ n \\ n \\ n\"         \"Contact me at: amcdevelopment@gmail.com\"         \"\\ n \\ n \\ n\"         \"MIDETOOLS version: 1.0\""</string>
+    <string name="about">My name is Adolfo and I am an application development student. I developed this app for Android as a final project of the Higher Degree in Development Multiplatform Applications. I`m also training in web application development and videogame development in 2D. If you have any suggestions on how to improve this application or do you think it could be added  Any feature that improves it, do not hesitate to contact me by mail. Contact me at: amcdevelopment@gmail.com MIDETOOLS version: 1.0</string>
     <string name="general_name">Route\'s name</string>
     <string name="general_cond">" Travel conditions"</string>
     <string name="general_year">Age</string>
@@ -54,8 +54,8 @@
     <string name="tiempo">Realization time</string>
     <string name="ascenso">Accumulated ascent</string>
     <string name="descenso">Accumulated descent</string>
-    <string name="save_quest">Are you sure you want to delete it?</string>
-    <string name="save_quest2">"This is final. "</string>
+    <string name="save_quest">Are you sure you want to save it?</string>
+    <string name="save_quest2">This will save the app in you internal storage</string>
     <string name="home_menu">My MIDEs</string>
     <string name="new_menu">New MIDE</string>
     <string name="more_menu">More</string>

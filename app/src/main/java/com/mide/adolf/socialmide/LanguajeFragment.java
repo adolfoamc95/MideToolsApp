@@ -21,6 +21,10 @@ import android.widget.TextView;
  * Use the {@link LanguajeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
+/**
+ * Este fragmento contiene dos botones para el cambio de lenguaje de la aplicación
+ */
 public class LanguajeFragment extends Fragment {
 
     private OnLangFragmentInteractionListener mListener;

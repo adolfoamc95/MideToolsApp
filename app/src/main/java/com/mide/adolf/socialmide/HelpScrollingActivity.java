@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+/**
+ * Actividad que contine los datos de ayuda para el usuario
+ */
 public class HelpScrollingActivity extends AppCompatActivity {
 
     @Override

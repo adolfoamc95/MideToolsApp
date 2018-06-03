@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**
+ * Clase adaptador ulitizado para cargar los MIDEs creados en la lista principal
+ */
 public class MideAdapter
     extends RecyclerView.Adapter<MideAdapter.MideViewHolder>
     implements View.OnClickListener {

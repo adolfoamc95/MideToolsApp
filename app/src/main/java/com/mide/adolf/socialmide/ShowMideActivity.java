@@ -13,6 +13,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +21,10 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 
+/**
+ * Actividad desde la que se nos muestra la imagen del elemento MIDE seleccionado.
+ * Desde ella podemos borrar editar y compartir nuestra imagen.
+ */
 public class ShowMideActivity extends AppCompatActivity {
 
     private MideObject mideObject;
@@ -96,16 +101,26 @@ public class ShowMideActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Método que almacena el id del elemento a editar y lanza la actividad de nuevo MIDE en modo
+     * editar.
+     */
     private void editar() {
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt("editId", mideObject.getMideId());
+        editor.putString("editRuta", mideObject.getRuta());
         editor.commit();
+        Log.d("ID PARA EDITAR ---", String.valueOf(mideObject.getMideId()));
 
         Intent intentEdit = new Intent(getApplicationContext(), NewMideScrollingActivity.class);
         startActivity(intentEdit);
     }
 
+    /**
+     * Metodo que carga la imagen de la memoria interna y la muestra en la imageview pasada por parametro.
+     * @param imageView en la que se carga la imagen obtenida
+     */
     private void cargar(ImageView imageView){
         ContextWrapper cw = new ContextWrapper(this.getApplicationContext());
 
@@ -117,6 +132,10 @@ public class ShowMideActivity extends AppCompatActivity {
         imageView.setImageDrawable(Drawable.createFromPath(mypath.toString()));
     }
 
+    /**
+     * Metodo que se lanza al pulsar en el boton share y que nos da acceso a las opciones de compartir
+     * del dispositivo.
+     */
     private void compartir(){
         ImageView imageView = (ImageView) findViewById(R.id.imageview_mide);
         imageView.buildDrawingCache();
@@ -142,6 +161,10 @@ public class ShowMideActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Metodo que borra de la base de datos y de la memoria interna el elmento seleccionado.
+     * @return
+     */
     private boolean delete() {
 
         // Delete from internal storage.

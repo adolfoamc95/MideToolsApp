@@ -23,6 +23,10 @@ import android.widget.Toast;
  * Use the {@link NewMedioObjFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
+/**
+ * Este fragmento se usa para añadir una nueva opcion a la lista de Medio.
+ */
 public class NewMedioObjFragment extends Fragment {
 
     BBDDLocal bdhelper;

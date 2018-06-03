@@ -27,6 +27,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Esta actividad contiene todos los elementos y metodos necesarios para crear un nuevo mide
+ */
 public class NewMideScrollingActivity extends AppCompatActivity {
 
     private ViewGroup layout;
@@ -83,6 +86,13 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Metodo que carga los diferentes xml que componen esta actividad en el orden indicado
+     * Este metodo tambien añade los listener para los spinner.
+     * @param nGrupo orden de creación
+     * @param edit si estamos editando un elemento existente o creando uno nuevo
+     * @return devuelve el layout con los datos cargados para su addicion al layout principal
+     */
     private LinearLayout añadirGrupos(int nGrupo, boolean edit){
 
         int grupo = nGrupo;
@@ -374,6 +384,9 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Método que añade un separador entre cada uno de los layouts de la secciones.
+     */
     private void añadirSeparador() {
         LayoutInflater inflater = LayoutInflater.from(this);
         LinearLayout linearLayout2 = (LinearLayout) inflater.inflate(R.layout.resource_separator, null, false);
@@ -398,6 +411,12 @@ public class NewMideScrollingActivity extends AppCompatActivity {
         }
     }*/
 
+    /**
+     * Metodo que recoge los datos una vez que estos han sido introducidos y se ha pulsado el boton de previsualizar.
+     * @param contenedor el layout del que tiene que recoger los datos
+     * @param opcion identificador de seccion
+     * @return verdadero si estan todos los datos requerido y falso en caso contrario.
+     */
     private boolean recogerDatos(LinearLayout contenedor, int opcion) {
         switch (opcion){
             case 1:
@@ -509,6 +528,11 @@ public class NewMideScrollingActivity extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * Método que calcula la nota de un tramo en base a su duración
+     * @param hora
+     * @return
+     */
     private int calculoNotaTramo(double hora){
         double horas = hora;
 
@@ -527,26 +551,16 @@ public class NewMideScrollingActivity extends AppCompatActivity {
         return 0;
     }
 
-    private boolean hayFallos(NestedScrollView scroll) {
-        if(mideObject.getNombre().equals("")){
-            scroll.scrollTo(0, 1);
-            return false;
-        }else if(mideObject.getNotaSev()==0){
-            scroll.scrollTo(0, 2);
-            return false;
-        }else if(mideObject.getNotaOr()==0){
-            scroll.scrollTo(0, 3);
-            return false;
-        }else if(mideObject.getNotaDiff()==0){
-            return false;
-        }else if(mideObject.getDistancia().equals("")||mideObject.getDesBajada()==0||mideObject.getDesSubida()==0){
-            return false;
-        }else if(mideObject.getTipoR().equals("")){
-            return false;
-        }
-        return true;
-    }
-
+    /**
+     * Metodo que avisa al usuario en el caso de haber algun error en la introducción de los parámetros
+     * y le dice el lugar en el que esta el error
+     * @param l1 layout de la seccion 1
+     * @param l2 layout de la seccion 2
+     * @param l3 layout de la seccion 3
+     * @param l4 layout de la seccion 4
+     * @param l5 layout de la seccion 5
+     * @param l6 layout de la seccion 6
+     */
     private void showErrors(LinearLayout l1, LinearLayout l2, LinearLayout l3, LinearLayout l4, LinearLayout l5, LinearLayout l6) {
 
         NestedScrollView scrollView = findViewById(R.id.scroll_view);
@@ -596,6 +610,12 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
     }
 
+
+    /**
+     * Metodo que se llama si en lugar de crear un nuevo mide venimos desde la opcion de editar.
+     * Este metodo busca el elemento a editar en la base de datos y carga los datos que contiene en las
+     * diferentes opciones.
+     */
     private void rellenarEdit(){
         BBDDLocal bdhelper = new BBDDLocal(this, "editMide", null, 1);
         SQLiteDatabase db = bdhelper.getWritableDatabase();

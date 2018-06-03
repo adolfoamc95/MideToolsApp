@@ -8,6 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 
+/**
+ * Esta actividad muestra la información basica de la aplicación,  contiene un boton para navegar a
+ * la siguiente actividad y un checkbox que nos permite no volver a mostrar esta información en sucesivos
+ * usos de la app.
+ */
 public class LoginActivity extends AppCompatActivity {
 
     @Override

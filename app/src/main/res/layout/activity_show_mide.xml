@@ -47,5 +47,4 @@
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
 
-
 </android.support.constraint.ConstraintLayout>
