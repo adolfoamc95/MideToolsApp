@@ -73,4 +73,5 @@
     <string name="toast_error_2">Faltan datos para calcular la orientación</string>
     <string name="toast_error_3">Debe seleccionar alguna opcion de dificultad</string>
     <string name="toast_error_4">Faltan datos en la seccion Esfuerzo</string>
+    <string name="title_activity_scrolling">Nuevo MIDE</string>
 </resources>

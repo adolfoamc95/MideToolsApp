@@ -1,8 +1,10 @@
 package com.mide.adolf.socialmide;
 
+import android.content.Intent;
 import android.util.Log;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Clase que contiene los datos basicos de un Mide y las opciones elegidas en la creación del mismo.
@@ -33,6 +35,7 @@ public class MideObject implements Serializable{
 
     private int checkedIt, checkedDespl, selectedTipo, selectedPasos, selectedRapel, selectedNieve, selectedNievePend, selectedAño, selectedEpoca, distMetros;
 
+    private ArrayList<Integer> listaCheckPulsados;
     public MideObject(){}
 
     public MideObject(int id, String nombre, String año, String ruta){
@@ -375,5 +378,29 @@ public class MideObject implements Serializable{
 
     public void setDistMetros(int distMetros) {
         this.distMetros = distMetros;
+    }
+
+    public ArrayList<Integer> getListaCheckPulsados() {
+        return listaCheckPulsados;
+    }
+
+    public void setListaCheckPulsados(ArrayList<Integer> listaCheckPulsados) {
+        this.listaCheckPulsados = listaCheckPulsados;
+    }
+
+    public String listaToString(){
+        String cadena ="";
+        for(int i : listaCheckPulsados){
+            cadena = cadena+i+",";
+        }
+        return cadena;
+    }
+    public ArrayList<Integer> stringToLista(String cadena){
+        ArrayList<Integer> lista = new ArrayList<>();
+        String[] ids = cadena.split(",");
+        for(String s : ids){
+            lista.add(Integer.valueOf(s));
+        }
+        return lista;
     }
 }

@@ -73,4 +73,5 @@
     <string name="toast_error_2">" Missing data to calculate orientation"</string>
     <string name="toast_error_3">"You must select some difficulty option "</string>
     <string name="toast_error_4">" Missing data in the Effort section"</string>
+    <string name="title_activity_scrolling">New MIDE</string>
 </resources>

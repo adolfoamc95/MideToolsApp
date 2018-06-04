@@ -42,6 +42,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
     ArrayList<String> opciones;
     int editId = 0;
     boolean edit= false;
+    ArrayList<Integer> checkBoxMarcados = new ArrayList<>();
 
 
 
@@ -146,11 +147,19 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams checkboxParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 checkboxParams.topMargin = 10;
                 checkboxParams.bottomMargin =10;
-
+                int checkboxid = 0;
                 for(String s: opciones) {
-                   CheckBox checkBox = (CheckBox) getLayoutInflater().inflate(R.layout.style_checkbox, null);
+                   final CheckBox checkBox = (CheckBox) getLayoutInflater().inflate(R.layout.style_checkbox, null);
                    checkBox.setText(s);
-                    checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                   checkBox.setId(checkboxid);
+                   if(edit){
+                       for(int i : editMide.getListaCheckPulsados()){
+                           if (checkboxid==i){
+                               checkBox.setChecked(true);
+                           }
+                       }
+                   }
+                   checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                         @Override
                         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                             if(isChecked){
@@ -161,7 +170,20 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                                 Log.d(this.getClass().getName(), "Uno menos");
                             }
                         }
-                    });
+                   });
+                   checkBox.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View v) {
+                           boolean checked = ((CheckBox) v).isChecked();
+                           if(checked) {
+                               checkBoxMarcados.add(v.getId());
+                               Log.d("marcado", String.valueOf(v.getId()));
+                           }else{
+                               checkBoxMarcados.remove(new Integer(v.getId()));
+                           }
+                       }
+                   });
+                   checkboxid++;
                    linearLayout2.addView(checkBox, checkboxParams);
                 }
 
@@ -451,6 +473,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
 
                 if(nChecked!=0) {
                     mideObject.setNotaSev(nChecked);
+                    mideObject.setListaCheckPulsados(checkBoxMarcados);
 
                     return true;
                 }
@@ -642,8 +665,10 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                 int nieve = c.getInt(13);
                 int nieveP = c.getInt(14);
                 String ruta = c.getString(15);
+                String cadenaCB = c.getString(16);
 
                 editMide = new MideObject(id, nombre, epoca, ano, itOp, desOp, tipoOp, horas, dist, despos, desneg, pasoOp, rapelOp, nieve, nieveP, ruta);
+                editMide.setListaCheckPulsados(editMide.stringToLista(cadenaCB));
 
             } while (c.moveToNext());
 

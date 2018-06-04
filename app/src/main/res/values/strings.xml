@@ -7,7 +7,7 @@
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings">Ajustes</string>
     <string name="action_about">Sobre nosotros</string>
-    <string name="title_activity_scrolling" translatable="false">ScrollingActivity</string>
+    <string name="title_activity_scrolling" >Nuevo MIDE</string>
 
     <!-- Login -->
 
@@ -60,7 +60,9 @@
 
     <!-- About -->
     <string name="about">
-        Mi nombre es Adolfo y soy un estudiante de desarrollo de aplicaciones. He desarrollado esta app para Android como proyecto final del Grado Superior en Desarrollo de Aplicaciones Multiplataforma. Tambien me estoy formando en desarrollo de aplicaciones web y en desarrollo de videojuegos en 2D. Si tienes alguna sugerencia sobre como mejorar esta aplicación o crees que se le prodia añadir alguna caracteristica que la mejorase no dudes en ponerte en contacto conmigo por correo."\n\n\n" Contacta conmigo en: amcdevelopment@gmail.com "\n\n\n" MIDETOOLS version: 1.0"
+        Mi nombre es Adolfo y soy un estudiante de desarrollo de aplicaciones. He desarrollado esta app para Android como proyecto final del Grado Superior en Desarrollo de Aplicaciones Multiplataforma. Tambien me estoy formando en desarrollo de aplicaciones web y en desarrollo de videojuegos en 2D. Si tienes alguna sugerencia sobre como mejorar esta aplicación o crees que se le prodia añadir alguna caracteristica que la mejorase no dudes en ponerte en contacto conmigo por correo.
+        Contacta conmigo en: amcdevelopment@gmail.com
+        MIDETOOLS version: 1.0"
     </string>
 
     <string name="MIDE" translatable="false">MIDE</string>

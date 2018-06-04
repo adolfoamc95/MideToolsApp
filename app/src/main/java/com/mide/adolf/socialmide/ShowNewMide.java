@@ -106,8 +106,7 @@ public class ShowNewMide extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                Log.d("listamarcadosenshow", mideObject.listaToString());
                 // Build an AlertDialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(ShowNewMide.this);
 
@@ -304,6 +303,7 @@ public class ShowNewMide extends AppCompatActivity {
             nuevoRegistroA.put("nieveOp", mide1.getSelectedNieve());
             nuevoRegistroA.put("npendOp", mide1.getSelectedNievePend());
             nuevoRegistroA.put("ruta", mide1.getRuta());
+            nuevoRegistroA.put("cbMarc", mide1.listaToString());
 
             if(!edit) {
                 db.insert("editMide", null, nuevoRegistroA);

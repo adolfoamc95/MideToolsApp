@@ -32,7 +32,8 @@ public class BBDDLocal extends SQLiteOpenHelper {
             "  `rapelOp` int(2) NOT NULL," +
             "  `nieveOp` int(2) NOT NULL," +
             "  `npendOp` int(2) NOT NULL," +
-            "  `ruta` varchar(100) NOT NULL" +
+            "  `ruta` varchar(100) NOT NULL," +
+            "  `cbMarc` varchar(100) NOT NULL" +
             ")";
 
     // Sentencia de creación de la tabla "options"
