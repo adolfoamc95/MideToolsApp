@@ -69,15 +69,6 @@ public class MisMidesActivity extends AppCompatActivity
         datos = new ArrayList<>();
         Cursor c = db.rawQuery("SELECT * FROM mides", null);
 
-        if(c.moveToLast()) {
-            lastId = c.getInt(0);
-
-            SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = prefs.edit();
-
-            editor.putInt("lastId", lastId);
-            editor.commit();
-        }
         if(c.moveToFirst()) {
             do {
 
@@ -235,7 +226,6 @@ public class MisMidesActivity extends AppCompatActivity
                 String año = c.getString(2);
                 String ruta = c.getString(3);
                 datos.add(new MideObject(id, nombre, año, ruta));
-
             } while (c.moveToNext());
             c.close();
             db.close();

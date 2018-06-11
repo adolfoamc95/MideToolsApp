@@ -68,6 +68,8 @@ public class ShowNewMide extends AppCompatActivity {
         Log.d("editId", String.valueOf(editId));
         if(editId!=0){
             edit = true;
+        }else {
+            setLastId();
         }
 
     }
@@ -106,7 +108,6 @@ public class ShowNewMide extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("listamarcadosenshow", mideObject.listaToString());
                 // Build an AlertDialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(ShowNewMide.this);
 
@@ -168,6 +169,14 @@ public class ShowNewMide extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void setLastId(){
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        editor.putInt("lastId", mideObject.getMideId());
+        editor.commit();
     }
 
     /**

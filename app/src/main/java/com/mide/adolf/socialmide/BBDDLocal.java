@@ -15,7 +15,7 @@ public class BBDDLocal extends SQLiteOpenHelper {
             "  `ruta` varchar(100) NOT NULL" +
             ")";
 
-    // Sentencia de creación de la tabla "edtiMide"
+    // Sentencia de creación de la tabla "editMide"
     String createEditableMideSentence = "CREATE TABLE `editMide` (" +
             "  `id` int(11) NOT NULL," +
             "  `nombre` varchar(256) NOT NULL," +

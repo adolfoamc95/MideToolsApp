@@ -61,6 +61,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
         editId = prefs.getInt("editId", 0);
         Log.d("editId", String.valueOf(editId));
         if(editId!=0){
+            Log.d("ENEDITID","AQUI");
             rellenarEdit();
             edit = true;
         }
@@ -448,8 +449,9 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                 SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
                 int lastId = prefs.getInt("lastId", 0);
 
-                mideObject.setMideId(lastId+1);
-
+                if(!edit) {
+                    mideObject.setMideId(lastId + 1);
+                }
                 TextView txtName = contenedor.findViewById(R.id.txt_general_name);
                 Spinner spCond = contenedor.findViewById(R.id.general_condiciones_spinner);
                 Spinner spAño = contenedor.findViewById(R.id.general_año_spinner);
@@ -647,6 +649,7 @@ public class NewMideScrollingActivity extends AppCompatActivity {
         Cursor c = db.rawQuery(" SELECT * FROM editMide WHERE id=? ", args);
 
         if(c.moveToFirst()) {
+            Log.d("ENCONTRADO ID", "SI");
             do {
 
                 int id = c.getInt(0);
@@ -666,13 +669,15 @@ public class NewMideScrollingActivity extends AppCompatActivity {
                 int nieveP = c.getInt(14);
                 String ruta = c.getString(15);
                 String cadenaCB = c.getString(16);
+                Log.d("NOMBRE", nombre);
 
                 editMide = new MideObject(id, nombre, epoca, ano, itOp, desOp, tipoOp, horas, dist, despos, desneg, pasoOp, rapelOp, nieve, nieveP, ruta);
+                Log.i("cadenaCB", cadenaCB);
                 editMide.setListaCheckPulsados(editMide.stringToLista(cadenaCB));
-
+                mideObject = editMide;
             } while (c.moveToNext());
 
             db.close();
-        }
+        }else Log.d("NO ENCONTRADO ID", "NO");
     }
 }

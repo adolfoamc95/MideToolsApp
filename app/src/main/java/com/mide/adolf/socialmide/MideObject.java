@@ -399,7 +399,9 @@ public class MideObject implements Serializable{
         ArrayList<Integer> lista = new ArrayList<>();
         String[] ids = cadena.split(",");
         for(String s : ids){
-            lista.add(Integer.valueOf(s));
+            if(!s.isEmpty()) {
+                lista.add(Integer.valueOf(s));
+            }
         }
         return lista;
     }
